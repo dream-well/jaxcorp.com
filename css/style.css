@@ -984,3 +984,18 @@ a.article, a.article:hover {
   padding:4px 10px;
   border-radius:15px;
 }
+
+/* modal form */
+
+.modal_amoutn_form {
+  display: flex;
+  justify-content: center;
+}
+.modal_amoutn_form form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  max-width: 450px;
+}
