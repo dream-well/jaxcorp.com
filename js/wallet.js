@@ -140,7 +140,9 @@ void function main() {
         if (accounts.length == 0) {
             on_wallet_disconnected();
             reset_connect_button();
-        } else {
+        } else {            
+            set_connected_address();
+            check_status();
         }
     });
 
