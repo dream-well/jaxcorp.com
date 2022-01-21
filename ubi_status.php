@@ -56,7 +56,7 @@
 <main role="main" class="bg-lighterblue">
     <div class="container pt-5 pb-5">
         <div class="row justify-content-center ubi">
-            <div class="col-12 col-md-12 ubi_all_div">
+            <div class="col-12 col-md-12 ubi_all_div" style="display:none">
                 <!-- no connected UBI STATUS -->
                 <div class="">
                     <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_connect">
