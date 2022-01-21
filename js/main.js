@@ -121,7 +121,7 @@ async function check_donate_button() {
         $("#btn_donate").html("Connect wallet");
         return;
     }
-    let allowance = await contracts[state.token1].methods.allowance(accounts[0], contracts.jaxSwap._address).call();
+    let allowance = await contracts.wjax.methods.allowance(accounts[0], contracts.ubi._address).call();
     allowance = formatUnit(allowance);
     if(allowance < 100000){
         $("#btn_donate").html("Approve");
@@ -131,13 +131,16 @@ async function check_donate_button() {
 }
 
 async function donate() {
-    let allowance = await contracts[state.token1].methods.allowance(accounts[0], contracts.jaxSwap._address).call();
+    let allowance = await contracts.wjax.methods.allowance(accounts[0], contracts.ubi._address).call();
     allowance = formatUnit(allowance);
     if(allowance < 100000){
         await approve_token("WJAX", contracts.wjax, contracts.ubi._address, "1" + "0".repeat(77));
         return;
     }
     let amount = $("#donate_amount").val();
+    if(!amount){
+        return;
+    }
     const promise = runSmartContract(contracts.ubi, "deposit_reward", parseUnit(amount, 4));
     notifier.async(promise, null, null, `Donating ${amount} ${token_name}`, {labels: {
         async: "Please wait..."
