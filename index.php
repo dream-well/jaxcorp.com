@@ -273,7 +273,18 @@ With the increased adoption of our energy-standard monetary system, every user s
   </div>
 	</section>
 	<!--FAQ-->
+
+  <!-- modal -->
+  <!-- Modal -->
+
+
 </main>
+
+<?php
+
+  include "includes/modal.php";
+
+?>
 
 <?php
 

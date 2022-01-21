@@ -15,8 +15,7 @@
 
 <script src="js/lodash.min.js"></script>
 <script src="js/awn.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
-<script src="js/util.js"></script>
+<script src="js/web3.min.js"></script>
 <script src="js/wallet.js"></script>
 
 
@@ -56,4 +55,7 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
+    </script>
+    <script>
+        
     </script>
