@@ -11,7 +11,7 @@
                     <form action="" class="modal_amoutn_form_inner"> 
                         <label for="donate" class="text-blue font-weight-bold text-center mb-4">Amount</label>
                         <input type="number" class="form-control border-blue pt-2 pb-2 mb-2" id="donate_amount">
-                        <input type="button" class="btn btn-info btn-lg mx-w-300" id="btn_donate" onclick="donate()">
+                        <button class="btn btn-info btn-lg mx-w-300" id="btn_donate" onclick="donate()">Donate</button>
                     </form>
             </div>
         </div>
