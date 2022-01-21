@@ -19,6 +19,7 @@ function hide_all_steps() {
 }
 
 async function check_status() {
+    check_donate_button();
     if(accounts.length == 0) {
         hide_all_steps();
         $(".ubi_not_connect").show();
@@ -113,4 +114,32 @@ async function get_history() {
     }
     $("#results .table_row").remove();
     $("#results").append(html);
+}
+
+async function check_donate_button() {
+    if(accounts.length == 0) {
+        $("#btn_donate").html("Connect wallet");
+        return;
+    }
+    let allowance = await contracts[state.token1].methods.allowance(accounts[0], contracts.jaxSwap._address).call();
+    allowance = formatUnit(allowance);
+    if(allowance < 100000){
+        $("#btn_donate").html("Approve");
+        return
+    }
+    $("#btn_donate").html("Donate");
+}
+
+async function donate() {
+    let allowance = await contracts[state.token1].methods.allowance(accounts[0], contracts.jaxSwap._address).call();
+    allowance = formatUnit(allowance);
+    if(allowance < 100000){
+        await approve_token("WJAX", contracts.wjax, contracts.ubi._address, "1" + "0".repeat(77));
+        return;
+    }
+    let amount = $("#donate_amount").val();
+    const promise = runSmartContract(contracts.ubi, "deposit_reward", parseUnit(amount, 4));
+    notifier.async(promise, null, null, `Donating ${amount} ${token_name}`, {labels: {
+        async: "Please wait..."
+    }});
 }

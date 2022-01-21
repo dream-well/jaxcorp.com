@@ -10,8 +10,8 @@
             <div class="mobilemodalheight modal_amoutn_form" >
                     <form action="" class="modal_amoutn_form_inner"> 
                         <label for="donate" class="text-blue font-weight-bold text-center mb-4">Amount</label>
-                        <input type="number" class="form-control border-blue pt-2 pb-2 mb-2">
-                        <input type="submit" class="btn btn-info btn-lg mx-w-300" value="Submit">
+                        <input type="number" class="form-control border-blue pt-2 pb-2 mb-2" id="donate_amount">
+                        <input type="button" class="btn btn-info btn-lg mx-w-300" id="btn_donate" onclick="donate()">
                     </form>
             </div>
         </div>
