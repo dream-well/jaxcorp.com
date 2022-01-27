@@ -2,8 +2,8 @@ let step = 0;
 
 void function main() {
     setInterval(check_status, 10000);
-    ethereum.on("accountsChanged", _.debounce(check_status));
-    ethereum.on("connect", _.debounce(check_status));
+    web3.currentProvider.on("accountsChanged", _.debounce(check_status));
+    web3.currentProvider.on("connect", _.debounce(check_status));
     connect_wallet();
     check_status();
     $(".ubi_all_div").show();
@@ -25,20 +25,22 @@ async function check_status() {
         $(".ubi_not_connect").show();
         return;
     }
-    const {status} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
+    const count = await callSmartContract(contracts.ubi, "userCount");
+    console.log("count", count);
+    const userInfo = await callSmartCitontract(contracts.ubi, "userInfo", accounts[0]);
     hide_all_steps();
-    if(status == 0){
+    if(userInfo.status == 0){
         $(".ubi_signup").show();
     }
-    if(status == 1){
+    if(userInfo.status == 1){
         $(".ubi_not_kyc").show();
     }
-    if(status == 2) {
+    if(userInfo.status == 2) {
         $(".ubi_connected").show();
         get_pending_ubi();
         get_history();
     }
-    if(status == 3) {
+    if(userInfo.status == 3) {
         $(".ubi_declined").show();
     }
 }
