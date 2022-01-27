@@ -11,36 +11,36 @@ let BN;
 let networks = {
     ethmainnet: {
         url: "https://mainnet.infura.io/v3/6797126c4f0942d99b649046e1ade16d",
-        chainId: "0x1",
+        chainId: 0x1,
         symbol: 'ETH'
     },
     bsctestnet: {
-        url: "https://data-seed-prebsc-2-s3.binance.org:8545/",
-        chainId: "0x61",
+        url: "https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet",
+        chainId: 0x61,
         chainName: 'Binance Smart Chain Testnet',
         blockExplorer: 'https://testnet.bscscan.com',
         symbol: 'BNB'
     },
     bscmainnet: {
         url: `https://bsc-dataseed1.binance.org/`,
-        chainId: "0x38",
+        chainId: 0x38,
         chainName: 'Binance Smart Chain Mainnet',
         blockExplorer: 'https://bscscan.com',
         symbol: 'BNB'
     },
     polygonmainnet: {
         url: `https://rpc-mainnet.maticvigil.com/`,
-        chainId: "0x89",
+        chainId: 0x89,
         symbol: 'MATIC'
     },
     polygontestnet: {
         url: `https://rpc-mumbai.maticvigil.com/`,
-        chainId: "0x13881",
+        chainId: 0x13881,
         symbol: 'MATIC'
     },
     avatestnet: {
         url: `https://api.avax-test.network/ext/bc/C/rpc/`,
-        chainId: "0xa869",
+        chainId: 0xa869,
         symbol: 'AVAX'
     },
 }
@@ -127,15 +127,23 @@ function on_wrong_network() {
 void function main() {
 
     on_wallet_disconnected();
-
-    web3 = new Web3(Web3.givenProvider);
+    if(ethereum) {
+        web3 = new Web3(Web3.givenProvider);
+    } else {
+        // Create a connector
+        const provider = new WalletConnectProvider({
+            bridge: "https://bridge.walletconnect.org", // Required
+        });
+        alert(provider);
+        web3 = new Web3(provider);
+    }
     BN = (str) => (new web3.utils.BN(str));
 
     getContractAddresses();
     // setTimeout(real_time_update, 500);
     // setInterval(real_time_update, 3000)
 
-    ethereum.on("accountsChanged", _accounts => {
+    web3.currentProvider.on("accountsChanged", _accounts => {
         accounts = _accounts
         if (accounts.length == 0) {
             on_wallet_disconnected();
@@ -146,7 +154,7 @@ void function main() {
         }
     });
 
-    ethereum.on("chainChanged", () => {
+    web3.currentProvider.on("chainChanged", () => {
         if (web3.currentProvider.chainId != networks[active_network].chainId) {
             on_wrong_network();
             accounts = [];
@@ -155,7 +163,7 @@ void function main() {
         }
     })
     notifier = new AWN({
-        position: "top-right",
+        position: "bottom-right",
         durations: {
             success: 1000,
             alert: 0
@@ -195,7 +203,7 @@ function disconnect_wallet() {
 
 function switch_network() {
     web3.currentProvider.request({
-            method: "wallet_switchEthereumChain",
+            method: "wallet_switchweb3.givenProviderChain",
             params: [{ chainId: networks[active_network].chainId }]
         })
         .then(() => {
@@ -210,8 +218,8 @@ function switch_network() {
 
 function add_network() {
     const network = networks[active_network];
-    window.ethereum.request({
-        method: 'wallet_addEthereumChain',
+    web3.currentProvider.request({
+        method: 'wallet_addweb3.givenProviderChain',
         params: [{
         chainId: network.chainId,
         chainName: network.chainName,
