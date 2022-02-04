@@ -173,6 +173,8 @@ void function main() {
         }
     });
 
+    if(ethereum.selectedAddress)
+        connect_wallet();
 }()
 
 function connect_wallet() {
