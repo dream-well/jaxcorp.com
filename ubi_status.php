@@ -114,11 +114,11 @@
                           <div class="col-10 justify-content-start align-items-center row">
                             <div class="col-6 justify-content-start align-items-center">
                                 <p class="text-info font80 mb-0 d-block">Pending UBI</p>
-                                <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJAX</small></h3>
+                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi"></span> <small>WJAX</small></h3>
                             </div>
                             <div class="col-6 justify-content-start align-items-center">
                                 <p class="text-info font80 mb-0 d-block">Total UBI Paid </p>
-                                <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJAX</small></h3>
+                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="paid_ubi"></span> <small>WJAX</small></h3>
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80">Collect</a></div>
