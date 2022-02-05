@@ -1,4 +1,28 @@
 let step = 0;
+let ubi_contract;
+
+const providers = {
+    rinkeby: {
+      provider: 'wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/eth/rinkeby/ws',
+      testnet: true,
+    },
+    bsctestnet: {
+      provider: 'wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet/ws',
+      testnet: true,
+    },
+    polygontestnet: {
+      provider: 'wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai/ws',
+      testnet: true,
+    },
+    polygonmainnet: {
+      provider: 'wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet/ws',
+      // testnet: true,
+    },
+    avalancheTestnet: {
+      provider: 'wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/avalanche/testnet/ws',
+      testnet: true,
+    },
+}
 
 void function main() {
     setInterval(check_status, 10000);
@@ -25,9 +49,10 @@ async function check_status() {
         $(".ubi_not_connect").show();
         return;
     }
-    const count = await callSmartContract(contracts.ubi, "userCount");
-    console.log("count", count);
-    const userInfo = await callSmartCitontract(contracts.ubi, "userInfo", accounts[0]);
+    if(!ubi_contract){
+        init_web3();
+    }
+    const userInfo = await callSmartContract(ubi_contract, "userInfo", accounts[0]);
     hide_all_steps();
     if(userInfo.status == 0){
         $(".ubi_signup").show();
@@ -147,4 +172,12 @@ async function donate() {
     notifier.async(promise, null, null, `Donating ${amount} ${token_name}`, {labels: {
         async: "Please wait..."
     }});
+}
+
+async function init_web3() {
+    const web3 = new Web3(providers[active_network].provider);
+    ubi_contract = new web3.eth.Contract(
+        contracts.ubi._jsonInterface,
+        contracts.ubi._address
+    );
 }
