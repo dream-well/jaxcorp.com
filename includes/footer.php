@@ -9,7 +9,7 @@
              <a href="https://ua.linkedin.com/company/jax-network" target="_blank" class="p-2"><img src="img/linkedin.svg" width="15px"/></a> 
              <a href="<?=$telegram_link?>" target="_blank" class="p-2"><img src="img/telegram.svg" width="15px"/></a>
              </div>
-          ©2022. Jax.Money.</div>
+          ©2022. JaxCorp.com</div>
       </div>
       <!-- <div class="col-lg-3 pb-3">
         <h6>Product</h6>
