@@ -27,7 +27,7 @@ async function check_status() {
     }
     const count = await callSmartContract(contracts.ubi, "userCount");
     console.log("count", count);
-    const userInfo = await callSmartCitontract(contracts.ubi, "userInfo", accounts[0]);
+    const userInfo = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
     hide_all_steps();
     if(userInfo.status == 0){
         $(".ubi_signup").show();
@@ -68,7 +68,8 @@ async function get_pending_ubi() {
     let totalRewardPerPerson = await callSmartContract(contracts.ubi, "totalRewardPerPerson");
     let {harvestedReward} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
     let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 4);
-    $(".pending_ubi").html(reward);
+    $(".pending_ubi").html(Number(reward).toLocaleString());
+    $(".paid_ubi").html(Number(formatUnit(harvestedReward, 4, 4)).toLocaleString());
 }
 
 async function collect_ubi() {
@@ -147,4 +148,4 @@ async function donate() {
     notifier.async(promise, null, null, `Donating ${amount} ${token_name}`, {labels: {
         async: "Please wait..."
     }});
-}
+}   
