@@ -2,6 +2,12 @@ body, html {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
 a:hover {
   text-decoration: none
 }
@@ -998,4 +1004,26 @@ a.article, a.article:hover {
   flex-direction: column;
   text-align: center;
   max-width: 450px;
+}
+
+/* list */
+.list_wrap ol li,
+.list_wrap ol {
+  list-style: none;
+}
+
+.list_wrap ol {
+  counter-reset: item;
+}
+
+.list_wrap ol li h4::before,
+.list_wrap ol li p::before,
+.list_wrap ol li ol h4::before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+.list_wrap ol p {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
