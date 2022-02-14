@@ -4,11 +4,11 @@
 
   $home_link = $base_url;
 
-  $ubi_status_link = $base_url."ubi_status.php";
+  $ubi_status_link = $base_url."ubi_status.html";
 
-  $terms_link = $base_url."terms.php";
+  $terms_link = $base_url."terms.html";
 
-  $privacy_link = $base_url."privacy.php";
+  $privacy_link = $base_url."privacy.html";
 
   $explore_jax_link  = 'https://explore.jax.net';
 
@@ -26,9 +26,9 @@
 
   $jax_money_wallet_link  = 'https://jaxwallet.io/';
 
-  $terms_link = $base_url."terms.php";
+  $terms_link = $base_url."terms.html";
 
-  $privacy_link = $base_url."privacy.php";
+  $privacy_link = $base_url."privacy.html";
 
   $support_link  = 'http://support.jax.money/';
 

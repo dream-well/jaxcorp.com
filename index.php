@@ -89,8 +89,8 @@
             <div class="text-center">
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon2.svg" class="pb-4" width="60px">
-                <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries Count</h4>
-                <h2 class="text-blue text-center">100000</h2>
+                <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries</h4>
+                <h2 class="text-blue text-center ubiBenefeciariesCount">0</h2>
               </div>
             </div>
           </div>
@@ -98,8 +98,8 @@
             <div class="text-center">
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
-                <h4 class="text-blue font-weight-normal pb-4">UBI per person per month</h4>
-                <h2 class="text-blue text-center">300000</h2>
+                <h4 class="text-blue font-weight-normal pb-4">Total UBI per person</h4>
+                <h2 class="text-blue text-center totalUbiPerPerson">0</h2>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ Learn more about UBI: [video link].
             </div>
             <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5 blueclr">
-                <p class="font-weight-light m-0">Anyone is allowed to participate in the UBI program. However, it was created with the lower class in mind. Kindly refrain from participating in the UBI program, if you already have a high income in order to let people who need it the most make real use of it. For them, it may be life-changing money..</p>
+                <p class="font-weight-light m-0">Anyone is allowed to participate in the UBI program.</p>
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@ Learn more about UBI: [video link].
             </div>
             <div id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5 blueclr">
-                <p class="font-weight-light m-0">WAnyone can register for UBI by following these three simple steps:
+                <p class="font-weight-light m-0">Anyone can register for UBI by following these three simple steps:
 </p>
                 <p>Connect your Metamask wallet to register</p>
                 <p>Pass KYC verification</p>
@@ -207,7 +207,7 @@ Learn more about UBI: [video link].
             </div>
             <div id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5">
-                <p class="font-weight-light m-0 blueclr">Yes. Please contact us at [email]. </p>
+                <p class="font-weight-light m-0 blueclr">Yes. You can donate funds to the UBI pool by sending money to the UBI donation address: 0xxx. </p>
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@ With the increased adoption of our energy-standard monetary system, every user s
             </div>
             <div id="collapseEleven" aria-labelledby="headingEleven" data-parent="#accordionExample1" class="collapse">
               <div class="card-body p-5">
-                <p class="font-weight-light m-0 blueclr">UBI is distributed in WJAX on a daily basis.</p>
+                <p class="font-weight-light m-0 blueclr">UBI is distributed in WJAX on a daily basis if the minimum threshold is met.</p>
               </div>
             </div>
           </div>
@@ -276,7 +276,7 @@ With the increased adoption of our energy-standard monetary system, every user s
             </div>
             <div id="collapseTwelve" aria-labelledby="headingTwelve" data-parent="#accordionExample1" class="collapse">
               <div class="card-body p-5">
-                <p class="font-weight-light m-0 blueclr">No. Please make sure you have all the  </p>
+                <p class="font-weight-light m-0 blueclr">No. KYC is mandatory to participate. </p>
               </div>
             </div>
           </div>
@@ -311,5 +311,44 @@ With the increased adoption of our energy-standard monetary system, every user s
 
 ?>
 
+<script>
+
+
+async function get_statistics() {
+  if(!contracts_provider) return;
+  let [
+    ubiBenefeciariesCount,
+    totalUbiPerPerson
+  ] = await Promise.all(
+      [
+        callSmartContract(contracts_provider.ubi, "userCount"),
+        callSmartContract(contracts_provider.ubi, "totalRewardPerPerson")
+      ]
+    );
+  $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
+  $(".totalUbiPerPerson").html(formatUnit(totalUbiPerPerson, 4, 4).toLocaleString());
+
+}
+var once = true;
+async function check_status() {
+  get_statistics();
+  if(contracts_provider && once) {
+    once = false;
+    totalUbiPaid = 0;
+    contracts_provider.ubi.events.Deposit_Reward({
+      fromBlock: 0
+    }, function(error, event) {
+
+    }).on('data', function(event) {
+      console.log("event", event.returnValues.amount);
+      totalUbiPaid += Number(formatUnit(event.returnValues.amount, 4, 4));
+      $(".totalUbiPaid").html(totalUbiPaid.toLocaleString());
+    })
+  }
+}
+
+check_status();
+setInterval(check_status, 60000);
+</script>
 </body>
 </html>
