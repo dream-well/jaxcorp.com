@@ -19,7 +19,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.0/web3.min.js"></script>
 <script src="js/wallet.js"></script>
 <script src="js/util.js"></script>
-<script src="js/main.js"></script>
 
 
 <!--- FOR VIDEO---> 

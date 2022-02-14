@@ -186,6 +186,8 @@ include "includes/modal.php";
   include "includes/footerJs.php";
 
 ?>
+
+<script src="js/main.js"></script>
 </body>
 
 </html>
