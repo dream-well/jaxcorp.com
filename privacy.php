@@ -157,7 +157,9 @@
 <li>Right to withdraw consent. You also have the right to withdraw your consent at any time where we rely on your consent to process your personal information;</li>
 </ol>
 
-<p>Please note that we may ask you to verify your identity before responding to such requests. Please note we may not be able to provide Service without some necessary data. If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please email us at <a href="mailto:jaxcorp@protonmail.com">jaxcorp@protonmail.com</a> .</p>
+<p>Please note that we may ask you to verify your identity before responding to such requests. Please note we may not be able to provide Service without some necessary data. If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please email us at <a href="mailto:
+info@jaxcorp.com">
+info@jaxcorp.com</a> .</p>
 
 
 
@@ -203,7 +205,9 @@
 </ul>
 
 
-<p>If you have any questions about this Privacy Policy, please contact us by email: <a href="mailto:jaxcorp@protonmail.com">jaxcorp@protonmail.com</a></p>
+<p>If you have any questions about this Privacy Policy, please contact us by email: <a href="mailto:
+info@jaxcorp.com">
+info@jaxcorp.com</a></p>
 
 
             </div>

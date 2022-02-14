@@ -17,7 +17,7 @@
 ?>
  <header class="bg-lighterblue pt-5 pb-5">
     <div class="container">
-      <h1 class="text-blue text-center">JAXCORP D.A.O </h1>
+      <h1 class="text-blue text-center">JaxCorp DAO</h1>
       <div class="row h-100">
 
         <div class="col-12 col-md-6 my-auto">

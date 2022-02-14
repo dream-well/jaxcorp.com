@@ -697,7 +697,9 @@
 <p dir="ltr">
     We will use our best efforts to resolve any potential disputes through
     informal, good-faith negotiations. If a potential dispute arises, you must
-contact us by sending an email to    <a href="mailto:jaxcorp@protonmail.com">jaxcorp@protonmail.com</a> so that
+contact us by sending an email to    <a href="mailto:
+info@jaxcorp.com">
+info@jaxcorp.com</a> so that
     we can attempt to resolve it without resorting to formal dispute
     resolution. If we aren’t able to reach an informal resolution within sixty
     days of your email, then you and we both agree to resolve the potential
@@ -786,7 +788,9 @@ contact us by sending an email to    <a href="mailto:jaxcorp@protonmail.com">jax
     +971-555082573
 </p>
 <p dir="ltr">
-    <a href="mailto:jaxcorp@protonmail.com">jaxcorp@protonmail.com</a>
+    <a href="mailto:
+info@jaxcorp.com">
+info@jaxcorp.com</a>
 </p>
 <br/>
 <br/>
