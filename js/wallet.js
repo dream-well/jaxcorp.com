@@ -17,7 +17,7 @@ let networks = {
     },
     bsctestnet: {
         url: "https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet",
-        ws: "ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet/ws",
+        ws: "wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet/ws",
         chainId: 0x61,
         chainName: 'Binance Smart Chain Testnet',
         blockExplorer: 'https://testnet.bscscan.com',
@@ -32,19 +32,19 @@ let networks = {
     },
     polygonmainnet: {
         url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet`,
-        ws: `ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet/ws`,
+        ws: `wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet/ws`,
         chainId: 0x89,
         symbol: 'MATIC'
     },
     polygontestnet: {
         url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai`,
-        ws: `ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai/ws`,
+        ws: `wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai/ws`,
         chainId: 0x13881,
         symbol: 'MATIC'
     },
     avatestnet: {
         url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/avalanche/testnet`,
-        ws: `ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/avalanche/testnet/ws`,
+        ws: `wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/avalanche/testnet/ws`,
         chainId: 0xa869,
         symbol: 'AVAX'
     },
