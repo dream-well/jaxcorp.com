@@ -82,7 +82,7 @@
                                 style="text-decoration: underline">Terms and Conditions</a> and <a href="#"
                                 class="text-blue" style="text-decoration: underline">Privacy Policy</a>.</p>
                         <a href="#" class="btn btn-info btn-lg mb-4" onclick="signup();">Sign Up</a>
-                        <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about Jax.Network
+                        <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                             UBI.</a></p>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                         </span></h3>
                     <p class="text-blue">Your request to join UBI program was declined. </p>
                     <a href="#" class="btn btn-info btn-lg mb-4">Try again</a>
-                    <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about Jax.Network UBI.</a></p>
+                    <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
                   </div>
                     
                 </div>
