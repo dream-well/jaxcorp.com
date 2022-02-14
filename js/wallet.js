@@ -118,7 +118,7 @@ async function getContractAddresses() {
             continue;
         }
         contracts[key] = new web3.eth.Contract(info.abi, info.address);
-        contracts_provider[key] = new web3.eth.Contract(info.abi, info.address);
+        contracts_provider[key] = new web3_provider.eth.Contract(info.abi, info.address);
     }
     typeof check_status == undefined && check_status();
 }
