@@ -265,7 +265,7 @@ With the increased adoption of our energy-standard monetary system, every user s
             </div>
             <div id="collapseEleven" aria-labelledby="headingEleven" data-parent="#accordionExample1" class="collapse">
               <div class="card-body p-5">
-                <p class="font-weight-light m-0 blueclr">UBI is distributed in WJAX on a daily basis.</p>
+                <p class="font-weight-light m-0 blueclr">UBI is distributed in WJAX on a daily basis if the minimum threshold is met.</p>
               </div>
             </div>
           </div>
