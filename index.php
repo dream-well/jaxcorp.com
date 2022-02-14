@@ -81,7 +81,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2">
                 <img src="img/icon1.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid</h4>
-                <h2 class="text-blue text-center totalUbiPaid">20000</h2>
+                <h2 class="text-blue text-center totalUbiPaid"></h2>
               </div>
             </div>
           </div>
@@ -89,8 +89,8 @@
             <div class="text-center">
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon2.svg" class="pb-4" width="60px">
-                <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries Count</h4>
-                <h2 class="text-blue text-center ubiBenefeciariesCount">100000</h2>
+                <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries</h4>
+                <h2 class="text-blue text-center ubiBenefeciariesCount"></h2>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI per person</h4>
-                <h2 class="text-blue text-center totalUbiPerPerson">300000</h2>
+                <h2 class="text-blue text-center totalUbiPerPerson"></h2>
               </div>
             </div>
           </div>
