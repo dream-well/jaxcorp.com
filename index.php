@@ -167,7 +167,7 @@ Learn more about UBI: [video link].
             </div>
             <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5 blueclr">
-                <p class="font-weight-light m-0">Anyone is allowed to participate in the UBI program. However, it was created with the lower class in mind. Kindly refrain from participating in the UBI program, if you already have a high income in order to let people who need it the most make real use of it. For them, it may be life-changing money..</p>
+                <p class="font-weight-light m-0">Anyone is allowed to participate in the UBI program.</p>
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@ Learn more about UBI: [video link].
             </div>
             <div id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5 blueclr">
-                <p class="font-weight-light m-0">WAnyone can register for UBI by following these three simple steps:
+                <p class="font-weight-light m-0">Anyone can register for UBI by following these three simple steps:
 </p>
                 <p>Connect your Metamask wallet to register</p>
                 <p>Pass KYC verification</p>
@@ -207,7 +207,7 @@ Learn more about UBI: [video link].
             </div>
             <div id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5">
-                <p class="font-weight-light m-0 blueclr">Yes. Please contact us at [email]. </p>
+                <p class="font-weight-light m-0 blueclr">Yes. You can donate funds to the UBI pool by sending money to the UBI donation address: 0xxx. </p>
               </div>
             </div>
           </div>
@@ -276,7 +276,7 @@ With the increased adoption of our energy-standard monetary system, every user s
             </div>
             <div id="collapseTwelve" aria-labelledby="headingTwelve" data-parent="#accordionExample1" class="collapse">
               <div class="card-body p-5">
-                <p class="font-weight-light m-0 blueclr">No. Please make sure you have all the  </p>
+                <p class="font-weight-light m-0 blueclr">No. KYC is mandatory to participate. </p>
               </div>
             </div>
           </div>
