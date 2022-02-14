@@ -72,28 +72,41 @@
 <!--How mush can I earn? end--> 
 
 <!--3boxes with icons start-->
-<section class="bg-lighterblue pt-5 pb-5">
-  <div class="container">
-    <div class="row h-100">
-      <div class="col-12 col-sm-4">
-        <div class="text-center"> <img src="img/icon1.svg" class="pb-4" width="70px"/>
-          <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid</h4>
+    <section class="bg-lighterblue pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-4">
+            <div class="text-center">
+
+              <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2">
+                <img src="img/icon1.svg" class="pb-4" width="70px">
+                <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid</h4>
+                <h2 class="text-blue text-center">20000</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="text-center">
+              <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
+                <img src="img/icon2.svg" class="pb-4" width="60px">
+                <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries Count</h4>
+                <h2 class="text-blue text-center">100000</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="text-center">
+              <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
+                <img src="img/icon3.svg" class="pb-4" width="70px">
+                <h4 class="text-blue font-weight-normal pb-4">UBI per person per month</h4>
+                <h2 class="text-blue text-center">300000</h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-4">
-        <div class="text-center"> <img src="img/icon2.svg" class="pb-4" width="60px"/>
-          <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries Count</h4>
-        </div>
-      </div>
-      <div class="col-12 col-sm-4">
-        <div class="text-center"> <img src="img/icon3.svg" class="pb-4" width="70px"/>
-          <h4 class="text-blue font-weight-normal pb-4">UBI per person per month</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--3boxes with icons end--> 
+    </section>
+    <!--3boxes with icons end-->
 <!--points starts--->
 <section class="bg-white pt-5 pb-5">
   <div class="container">
