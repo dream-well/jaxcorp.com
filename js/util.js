@@ -21,6 +21,19 @@ async function runSmartContract(contract, func, ...args) {
     if(!contract) return false;
     if(!contract.methods[func]) return false;
     return contract.methods[func](...args).send({ from: accounts[0] })
+        .then((tx) => {
+            notifier.success(`Transaction Completed <br/>
+                TxInfo: <a target='_blank' href='${blockExplorer('tx', tx.transactionHash)}'>View</a>
+            `, {durations: {success: 0}});
+        })
+        .catch((err) => {
+            if(e.message.startsWith("Internal JSON-RPC error.")) {
+                e = JSON.parse(e.message.substr(24));
+            }
+            notifier.warning(`Transaction Failed <br/>
+                ${err.message}
+            `, {durations: {success: 0}});
+        })
 }
 
 async function estimateGas(contract, func, ...args) {

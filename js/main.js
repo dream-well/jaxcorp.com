@@ -1,4 +1,9 @@
+
+const donate_wallet = '';
+
 let step = 0;
+
+
 
 void function main() {
     setInterval(check_status, 10000);
@@ -149,3 +154,16 @@ async function donate() {
         async: "Please wait..."
     }});
 }   
+
+async function donate_to_wallet() {
+    let amount = $("#donate_amount").val();
+    const {success, gas, message}  = await estimateGas(contracts.wjax, "transfer", donate_wallet);   
+    if(!success) {
+        notifier.warning(message);
+        return;
+    }
+    notifier.async(runSmartContract(contracts.wjax, "transfer", parseUnit(amount, 4)), 
+        null, null, `Donating ${amount} ${token_name}`, {labels: {
+        async: "Please wait..."
+    }});
+}
