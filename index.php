@@ -98,8 +98,8 @@
             <div class="text-center">
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
-                <h4 class="text-blue font-weight-normal pb-4">UBI per person per month</h4>
-                <h2 class="text-blue text-center ubiPerMonth">300000</h2>
+                <h4 class="text-blue font-weight-normal pb-4">Total UBI per person</h4>
+                <h2 class="text-blue text-center totalUbiPerPerson">300000</h2>
               </div>
             </div>
           </div>
@@ -315,9 +315,40 @@ With the increased adoption of our energy-standard monetary system, every user s
 
 
 async function get_statistics() {
-    let ubiBenefeciariesCount = await callSmartContract(contracts.ubi, "userCount");
-    $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
+  if(!contracts) return;
+  let [
+    ubiBenefeciariesCount,
+    totalUbiPerPerson
+  ] = await Promise.all(
+      [
+        callSmartContract(contracts.ubi, "userCount"),
+        callSmartContract(contracts.ubi, "totalRewardPerPerson")
+      ]
+    );
+  $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
+  $(".totalUbiPerPerson").html(formatUnit(totalUbiPerPerson, 4, 4).toLocaleString());
+
 }
+var once = true;
+async function check_status() {
+  get_statistics();
+  if(contracts && once) {
+    once = false;
+    totalUbiPaid = 0;
+    contracts.ubi.events.Deposit_Reward({
+      fromBlock: 0
+    }, function(error, event) {
+
+    }).on('data', function(event) {
+      console.log("event", event.returnValues.amount);
+      totalUbiPaid += Number(formatUnit(event.returnValues.amount, 4, 4));
+      $(".totalUbiPaid").html(totalUbiPaid.toLocaleString());
+    })
+  }
+}
+
+check_status();
+setInterval(check_status, 60000);
 </script>
 </body>
 </html>
