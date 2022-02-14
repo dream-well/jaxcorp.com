@@ -335,7 +335,7 @@ async function check_status() {
   if(contracts && once) {
     once = false;
     totalUbiPaid = 0;
-    contracts.ubi.events.Deposit_Reward({
+    contracts_provider.ubi.events.Deposit_Reward({
       fromBlock: 0
     }, function(error, event) {
 
