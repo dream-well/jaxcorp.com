@@ -1,7 +1,7 @@
 let web3;
 let accounts = [];
 let mode = "test";
-let active_network = "polygontestnet";
+let active_network = "bsctestnet";
 let testnet_chain_id = "0x61";
 let markup_fee_decimal = 8;
 //https://f3oall.github.io/awesome-notifications/docs/

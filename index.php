@@ -81,7 +81,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2">
                 <img src="img/icon1.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid</h4>
-                <h2 class="text-blue text-center">20000</h2>
+                <h2 class="text-blue text-center totalUbiPaid">20000</h2>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon2.svg" class="pb-4" width="60px">
                 <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries Count</h4>
-                <h2 class="text-blue text-center">100000</h2>
+                <h2 class="text-blue text-center ubiBenefeciariesCount">100000</h2>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">UBI per person per month</h4>
-                <h2 class="text-blue text-center">300000</h2>
+                <h2 class="text-blue text-center ubiPerMonth">300000</h2>
               </div>
             </div>
           </div>
@@ -311,5 +311,13 @@ With the increased adoption of our energy-standard monetary system, every user s
 
 ?>
 
+<script>
+
+
+async function get_statistics() {
+    let ubiBenefeciariesCount = await callSmartContract(contracts.ubi, "userCount");
+    $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
+}
+</script>
 </body>
 </html>
