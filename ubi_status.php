@@ -121,7 +121,9 @@
                                 <h3 class="d-block mb-0 pb-0 text-blue"><span class="paid_ubi"></span> <small>WJAX</small></h3>
                             </div>
                         </div>
-                        <div class="col-2 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80">Collect</a></div>
+                        <div class="col-2 d-flex justify-content-end align-items-center">
+                          <button onclick="collect_ubi();" class="btn btn-info btn-lg font80">Collect</button>
+                        </div>
                       </div>
                   </div>
                 </div>
