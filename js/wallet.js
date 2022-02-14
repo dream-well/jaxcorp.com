@@ -8,6 +8,7 @@ let markup_fee_decimal = 8;
 let notifier;
 let BN;
 
+
 let networks = {
     ethmainnet: {
         url: "https://mainnet.infura.io/v3/6797126c4f0942d99b649046e1ade16d",
@@ -16,6 +17,7 @@ let networks = {
     },
     bsctestnet: {
         url: "https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet",
+        ws: "ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/bsc/testnet/ws",
         chainId: 0x61,
         chainName: 'Binance Smart Chain Testnet',
         blockExplorer: 'https://testnet.bscscan.com',
@@ -29,20 +31,24 @@ let networks = {
         symbol: 'BNB'
     },
     polygonmainnet: {
-        url: `https://rpc-mainnet.maticvigil.com/`,
+        url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet`,
+        ws: `ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet/ws`,
         chainId: 0x89,
         symbol: 'MATIC'
     },
     polygontestnet: {
-        url: `https://rpc-mumbai.maticvigil.com/`,
+        url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai`,
+        ws: `ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai/ws`,
         chainId: 0x13881,
         symbol: 'MATIC'
     },
     avatestnet: {
-        url: `https://api.avax-test.network/ext/bc/C/rpc/`,
+        url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/avalanche/testnet`,
+        ws: `ws://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/avalanche/testnet/ws`,
         chainId: 0xa869,
         symbol: 'AVAX'
     },
+
 }
 
 let tokens = {
@@ -94,16 +100,25 @@ let tokens = {
 
 let contracts = {};
 let contracts_provider = {};
+let web3_provider;
 async function getContractAddresses() {
-    const contractsInfo = {"wjax":{"address":"0x25F2EFE24d627FC3DDaf07F9A47310286f172f07"},"ubi":{"address":"0x0829A28B1765bEeC09dae267B5f0E2EF9E7323b2","abi":[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"idHash","type":"uint256"},{"indexed":false,"internalType":"string","name":"remarks","type":"string"}],"name":"Accept_User","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Collect_UBI","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Deposit_Reward","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"user","type":"address"}],"name":"Reject_User","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"oldAjaxPrime","type":"address"},{"indexed":false,"internalType":"address","name":"newAjaxPrime","type":"address"}],"name":"Set_Ajax_Prime","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Set_Minimum_Reward_Per_Person","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"rewardToken","type":"address"}],"name":"Set_Reward_Token","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"verifier","type":"address"},{"indexed":false,"internalType":"uint256","name":"limit","type":"uint256"}],"name":"Set_Verifier_Limit","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address[]","name":"verifiers","type":"address[]"}],"name":"Set_Verifiers","type":"event"},{"inputs":[],"name":"ajaxPrime","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"},{"internalType":"uint256","name":"idHash","type":"uint256"},{"internalType":"string","name":"remarks","type":"string"}],"name":"approveUser","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"collect_ubi","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"deposit_reward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"idHashInfo","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_ajaxPrime","type":"address"},{"internalType":"address","name":"_rewardToken","type":"address"}],"name":"initialize","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"minimumRewardPerPerson","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"register","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"rejectUser","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"rewardToken","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"verifier","type":"address"},{"internalType":"uint256","name":"limit","type":"uint256"}],"name":"setVerifierLimit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_verifiers","type":"address[]"}],"name":"setVerifiers","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newAjaxPrime","type":"address"}],"name":"set_ajax_prime","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"set_minimum_reward_per_person","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_rewardToken","type":"address"}],"name":"set_reward_token","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"totalRewardPerPerson","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"userCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"userInfo","outputs":[{"internalType":"uint256","name":"harvestedReward","type":"uint256"},{"internalType":"uint256","name":"idHash","type":"uint256"},{"internalType":"enum Ubi.Status","name":"status","type":"uint8"},{"internalType":"string","name":"remarks","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"verifierLimitInfo","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"verifiers","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"withdrawByAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"}]}}
+    web3_provider = new Web3(networks[active_network].ws);
+    const contractsInfo = {
+        "wjax":{"address":"0x25F2EFE24d627FC3DDaf07F9A47310286f172f07"},
+        "ubi":{"address":"0x0829A28B1765bEeC09dae267B5f0E2EF9E7323b2",
+            "abi":[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"idHash","type":"uint256"},{"indexed":false,"internalType":"string","name":"remarks","type":"string"}],"name":"Accept_User","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Collect_UBI","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Deposit_Reward","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"user","type":"address"}],"name":"Reject_User","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"oldAjaxPrime","type":"address"},{"indexed":false,"internalType":"address","name":"newAjaxPrime","type":"address"}],"name":"Set_Ajax_Prime","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Set_Minimum_Reward_Per_Person","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"rewardToken","type":"address"}],"name":"Set_Reward_Token","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"verifier","type":"address"},{"indexed":false,"internalType":"uint256","name":"limit","type":"uint256"}],"name":"Set_Verifier_Limit","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address[]","name":"verifiers","type":"address[]"}],"name":"Set_Verifiers","type":"event"},{"inputs":[],"name":"ajaxPrime","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"},{"internalType":"uint256","name":"idHash","type":"uint256"},{"internalType":"string","name":"remarks","type":"string"}],"name":"approveUser","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"collect_ubi","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"deposit_reward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"idHashInfo","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_ajaxPrime","type":"address"},{"internalType":"address","name":"_rewardToken","type":"address"}],"name":"initialize","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"minimumRewardPerPerson","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"register","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"rejectUser","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"rewardToken","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"verifier","type":"address"},{"internalType":"uint256","name":"limit","type":"uint256"}],"name":"setVerifierLimit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_verifiers","type":"address[]"}],"name":"setVerifiers","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newAjaxPrime","type":"address"}],"name":"set_ajax_prime","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"set_minimum_reward_per_person","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_rewardToken","type":"address"}],"name":"set_reward_token","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"totalRewardPerPerson","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"userCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"userInfo","outputs":[{"internalType":"uint256","name":"harvestedReward","type":"uint256"},{"internalType":"uint256","name":"idHash","type":"uint256"},{"internalType":"enum Ubi.Status","name":"status","type":"uint8"},{"internalType":"string","name":"remarks","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"verifierLimitInfo","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"verifiers","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"withdrawByAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+        }
+    }
     // contract_address = contractsInfo.admin.address;
     for(let key in contractsInfo) {
         const info = contractsInfo[key];
         if(!info.abi) {
-            contracts_provider[key] = contracts[key] = new web3.eth.Contract(minABI, info.address)
+            contracts[key] = new web3.eth.Contract(minABI, info.address)
+            contracts_provider[key] = new web3_provider.eth.Contract(minABI, info.address)
             continue;
         }
-        contracts_provider[key] = contracts[key] = new web3.eth.Contract(info.abi, info.address);
+        contracts[key] = new web3.eth.Contract(info.abi, info.address);
+        contracts_provider[key] = new web3.eth.Contract(info.abi, info.address);
     }
     typeof check_status == undefined && check_status();
 }
