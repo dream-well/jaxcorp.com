@@ -332,7 +332,7 @@ async function get_statistics() {
 var once = true;
 async function check_status() {
   get_statistics();
-  if(contracts && once) {
+  if(contracts_provider && once) {
     once = false;
     totalUbiPaid = 0;
     contracts_provider.ubi.events.Deposit_Reward({
