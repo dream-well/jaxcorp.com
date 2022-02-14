@@ -315,14 +315,14 @@ With the increased adoption of our energy-standard monetary system, every user s
 
 
 async function get_statistics() {
-  if(!contracts) return;
+  if(!contracts_provider) return;
   let [
     ubiBenefeciariesCount,
     totalUbiPerPerson
   ] = await Promise.all(
       [
-        callSmartContract(contracts.ubi, "userCount"),
-        callSmartContract(contracts.ubi, "totalRewardPerPerson")
+        callSmartContract(contracts_provider.ubi, "userCount"),
+        callSmartContract(contracts_provider.ubi, "totalRewardPerPerson")
       ]
     );
   $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
