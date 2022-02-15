@@ -29,7 +29,7 @@
                 <div class="img">
                   <img src="img/ajaxprime.jpg">
                 </div>
-                <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp D.A.O</span></h2>
+                <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp DAO</span></h2>
                 <p class="text-blue"> "UBI is necessary for a meritocracy and to enhance equality of opportunity."</p>
                 <span>
 
