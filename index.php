@@ -29,7 +29,7 @@
                 <div class="img">
                   <img src="img/ajaxprime.jpg">
                 </div>
-                <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp D.A.O</span></h2>
+                <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp DAO</span></h2>
                 <p class="text-blue"> "UBI is necessary for a meritocracy and to enhance equality of opportunity."</p>
                 <span>
 
@@ -154,7 +154,7 @@
             <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse">
               <div class="card-body p-5">
                 <p class="font-weight-light m-0 blueclr">In simple words, universal basic income (UBI) is a minimum amount of money enough to cover all basic human needs.
-Learn more about UBI: [video link].
+Learn more about UBI: <a href = "https://youtu.be/5r3DS7oQoHY">Watch Video</a>.
  </p>
               </div>
             </div>
