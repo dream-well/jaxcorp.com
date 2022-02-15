@@ -68,7 +68,7 @@
                             JaxCorp DAO.</p>
                         <a href="#" class="btn_connect btn btn-info btn-lg mb-4" onclick="connect_wallet()">Connect
                             a wallet</a>
-                        <p><a href="#" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
+                        <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                                 UBI.</a></p>
                     </div>
                     <!-- no connected UBI STATUS -->
@@ -95,7 +95,7 @@
                         </span></h3>
                     <p class="text-blue">KYC Verification is required to continue your registration.</p>
                     <a href="#" class="btn btn-info btn-lg mb-4" onclick="verify()">Verify</a>
-                    <p><a href="#" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
+                    <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
                 </p>
                 </div>
                  <!-- not registered KYC verify -->
