@@ -212,7 +212,7 @@ function connect_wallet() {
             } else {
                 set_connected_address();
             }
-            check_status && check_status();
+            typeof check_status != 'undefined' && check_status();
         })
         .catch(error => {
             console.error(error);
