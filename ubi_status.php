@@ -68,7 +68,7 @@
                             JaxCorp DAO.</p>
                         <a href="#" class="btn_connect btn btn-info btn-lg mb-4" onclick="connect_wallet()">Connect
                             a wallet</a>
-                        <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
+                        <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                                 UBI.</a></p>
                     </div>
                     <!-- no connected UBI STATUS -->
@@ -82,7 +82,7 @@
                                 style="text-decoration: underline">Terms and Conditions</a> and <a href="#"
                                 class="text-blue" style="text-decoration: underline">Privacy Policy</a>.</p>
                         <a href="#" class="btn btn-info btn-lg mb-4" onclick="signup();">Sign Up</a>
-                        <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
+                        <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                             UBI.</a></p>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                         </span></h3>
                     <p class="text-blue">KYC Verification is required to continue your registration.</p>
                     <a href="#" class="btn btn-info btn-lg mb-4" onclick="verify()">Verify</a>
-                    <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
+                    <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
                 </p>
                 </div>
                  <!-- not registered KYC verify -->
@@ -159,7 +159,7 @@
                         </span></h3>
                     <p class="text-blue">Your request to join UBI program was declined. </p>
                     <a href="#" class="btn btn-info btn-lg mb-4">Try again</a>
-                    <p><a href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
+                    <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
                   </div>
                     
                 </div>
