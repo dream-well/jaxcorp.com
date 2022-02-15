@@ -81,7 +81,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2">
                 <img src="img/icon1.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid (WJAX)</h4>
-                <h2 class="text-blue text-center">20000</h2>
+                <h2 class="text-blue text-center totalUbiPaid">20000</h2>
               </div>
             </div>
           </div>
