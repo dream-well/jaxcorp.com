@@ -115,7 +115,7 @@ async function getContractAddresses() {
     if(web3)
         init_contracts(web3, contracts, contractsInfo);
     init_contracts(web3_provider, contracts_provider, contractsInfo);
-    if(typeof check_status != undefined) check_status();
+    if(typeof check_status != "undefined") check_status();
 }
 
 function init_contracts(web3, contracts, contractsInfo) {
