@@ -1,8 +1,2 @@
-RewriteEngine on
-RewriteBase /
-
-RewriteCond %{THE_REQUEST} (.*)\.php
-RewriteRule ^(.*)\.php $1.html [R=301,L]
-
-RewriteCond %{THE_REQUEST} (.*)\.html
-RewriteRule ^(.*)\.html $1.php [L]
+RewriteEngine On
+RewriteRule ^(.*)\.html$ $1.php [L]

@@ -24,7 +24,7 @@
             <div class="col-12 mb-5">
             <p><strong>Introduction</strong></p>
 
-<p>JaxCorp DAO (“us”, “we”, or “our”), a not-for-profit company limited by guarantee, bearing  registration number __________________, and having its registered office at __________________ and operates <a href="https://jaxcorp.com">jaxcorp.com</a> (hereinafter referred to as “<strong>Service</strong>”).</p>
+<p>JaxCorp DAO ("us", "we" or "our") operates jaxcorp.com (hereinafter referred to as "Service") <a href="https://jaxcorp.com">jaxcorp.com</a> (hereinafter referred to as “<strong>Service</strong>”).</p>
 
 <p>Our Privacy Policy governs your visit to jaxcorp.com and explains how we collect, safeguard and disclose information that results from your use of our Service. We use your data to provide and improve Service. You agree to the collection and use of information in accordance with this policy by using Services. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms of Service. Our Terms of Service (“<strong>Terms</strong>”) govern all use of our Service and, together with the Privacy Policy, constitute your agreement with us (“<strong>Agreement</strong>”).</p>
 
