@@ -65,10 +65,10 @@
                                     Connected</p>
                             </span></h3>
                         <p class="text-blue">Connect with your Metamask wallet to apply for the UBI program from
-                            Jax.Network.</p>
+                            JaxCorp DAO.</p>
                         <a href="#" class="btn_connect btn btn-info btn-lg mb-4" onclick="connect_wallet()">Connect
                             a wallet</a>
-                        <p><a href="#" class="text-blue" style="text-decoration: underline">Read more about Jax.Network
+                        <p><a href="#" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                                 UBI.</a></p>
                     </div>
                     <!-- no connected UBI STATUS -->
@@ -95,7 +95,7 @@
                         </span></h3>
                     <p class="text-blue">KYC Verification is required to continue your registration.</p>
                     <a href="#" class="btn btn-info btn-lg mb-4" onclick="verify()">Verify</a>
-                    <p><a href="#" class="text-blue" style="text-decoration: underline">Read more about Jax.Network UBI.</a>
+                    <p><a href="#" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
                 </p>
                 </div>
                  <!-- not registered KYC verify -->
