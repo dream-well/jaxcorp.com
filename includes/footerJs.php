@@ -13,7 +13,7 @@
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/vendor/holder.min.js"></script> 
 <script src="js/offcanvas.js"></script> 
-
+<script type="text/javascript" src="js/axios.min.js"></script>
 <script src="js/lodash.min.js"></script>
 <script src="js/awn.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.0/web3.min.js"></script>

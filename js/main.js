@@ -62,11 +62,29 @@ async function signup() {
 }
 
 function verify() {
-    // const veriff =
-    //     // window.open("https://magic.veriff.me/v/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uX2lkIjoiZDM3ODViYTQtZTExNy00Y2M2LWJmYWQtMGU3ZDI0NGQwY2RiIiwiaWF0IjoxNjQxNTcwMjM0fQ.u2r6-W4xoBv7X-WDhWRUQbIFilXM5rGTUJYWStM1lXk?", "_blank");
-    //     window.open("http://localhost", "_blank");
-    step = 2;
-    check_status();
+    if(accounts.length == 0) return;
+    const veriff = Veriff({
+        host: 'https://stationapi.veriff.com',
+        apiKey: 'fc1cc71d-19e5-4e1d-bfae-749c1cb97e09',
+        parentId: 'veriff-root',
+        onSession: function(err, response) {
+            console.log(response.verification);
+          window.veriffSDK.createVeriffFrame({ url: response.verification.url });
+          axios.post('/api/veriff/create', response.verification);
+        }
+      });
+      veriff.setParams({
+        person: {
+          givenName: ' ',
+          lastName: ' '
+        }
+      });
+      veriff.mount({
+        formLabel: {
+          vendorData: 'Public Key Address'
+        }
+      });
+      $("#veriff-vendor-data").val(accounts[0]);
 }
 
 async function get_pending_ubi() {

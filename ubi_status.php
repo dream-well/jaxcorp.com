@@ -94,9 +94,10 @@
                             </p>
                         </span></h3>
                     <p class="text-blue">KYC Verification is required to continue your registration.</p>
-                    <a href="#" class="btn btn-info btn-lg mb-4" onclick="verify()">Verify</a>
+                    <a href="#" class="btn btn-info btn-lg mb-4" onclick="verify()">GET VERIFIED</a>
                     <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
                 </p>
+                <div id='veriff-root'></div>
                 </div>
                  <!-- not registered KYC verify -->
                 <!-- ALL CONNECTED -->
@@ -173,6 +174,10 @@
 include "includes/modal.php";
 
 ?>
+
+<script src='https://cdn.veriff.me/sdk/js/1.1/veriff.min.js'></script>
+<script src='https://cdn.veriff.me/incontext/js/v1/veriff.js'></script>
+
 
 </main>
 <?php
