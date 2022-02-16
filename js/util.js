@@ -26,7 +26,7 @@ async function runSmartContract(contract, func, ...args) {
                 TxInfo: <a target='_blank' href='${blockExplorer('tx', tx.transactionHash)}'>View</a>
             `, {durations: {success: 0}});
         })
-        .catch((err) => {
+        .catch((e) => {
             if(e.message.startsWith("Internal JSON-RPC error.")) {
                 e = JSON.parse(e.message.substr(24));
             }

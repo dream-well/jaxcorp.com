@@ -39,6 +39,17 @@ async function check_status() {
     }
     if(userInfo.status == 1){
         $(".ubi_not_kyc").show();
+        const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
+        if(data.type == 'success') {
+            if(data.user.status == 'created'){
+                $(".btn_verify").html("CONTINUE VERIFICATION");
+            }
+            if(data.user.status == 'finished') {
+                $(".btn_verify").html("WAITING DECISION");
+            }
+        } else {
+            $(".btn_verify").html("GET VERIFIED");
+        }
     }
     if(userInfo.status == 2) {
         $(".ubi_connected").show();
@@ -61,16 +72,58 @@ async function signup() {
     check_status();
 }
 
-function verify() {
+async function verify() {
     if(accounts.length == 0) return;
+    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
+    if(data.type == 'success') {
+        const user = data.user;
+        if(user.status == 'created'){
+            const veriffLink = `https://alchemy.veriff.com/v/${user.sessionToken}`;
+            window.veriffSDK.createVeriffFrame({ url: veriffLink,
+                onEvent: async function(msg) {
+                    switch(msg) {
+                      case MESSAGES.STARTED:
+                          break;
+                      case MESSAGES.CANCELED:
+                          break;
+                      case MESSAGES.FINISHED:
+                          await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
+                          check_status();
+                          break;
+                    }
+                  }
+                })
+        }
+        if(data.status == 'finished') {
+            alert('Please wait the verification result');
+        }
+        return;
+    }
     const veriff = Veriff({
         host: 'https://stationapi.veriff.com',
         apiKey: 'fc1cc71d-19e5-4e1d-bfae-749c1cb97e09',
         parentId: 'veriff-root',
-        onSession: function(err, response) {
+        onSession: async function(err, response) {
             console.log(response.verification);
-          window.veriffSDK.createVeriffFrame({ url: response.verification.url });
-          axios.post('/api/veriff/create', response.verification);
+            const veriffFrame = window.veriffSDK.createVeriffFrame({ url: response.verification.url,
+            onEvent: async function(msg) {
+                console.log(msg);
+                switch(msg) {
+                  case MESSAGES.STARTED:
+                      break;
+                  case MESSAGES.CANCELED:
+                      $("#veriff-root").empty();
+                      break;
+                  case MESSAGES.FINISHED:
+                      await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
+                      check_status();
+                      break;
+                }
+              }
+
+             });
+            
+             await axios.post('https://beta.jax.money:8443/veriff/user', response.verification);
         }
       });
       veriff.setParams({
