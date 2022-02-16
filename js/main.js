@@ -82,11 +82,11 @@ async function verify() {
             window.veriffSDK.createVeriffFrame({ url: veriffLink,
                 onEvent: async function(msg) {
                     switch(msg) {
-                      case MESSAGES.STARTED:
+                      case 'STARTED':
                           break;
-                      case MESSAGES.CANCELED:
+                      case 'CANCELED':
                           break;
-                      case MESSAGES.FINISHED:
+                      case 'FINISHED':
                           await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
                           check_status();
                           break;
@@ -109,12 +109,12 @@ async function verify() {
             onEvent: async function(msg) {
                 console.log(msg);
                 switch(msg) {
-                  case MESSAGES.STARTED:
+                  case 'STARTED':
                       break;
-                  case MESSAGES.CANCELED:
+                  case 'CANCELED':
                       $("#veriff-root").empty();
                       break;
-                  case MESSAGES.FINISHED:
+                  case 'FINISHED':
                       await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
                       check_status();
                       break;
