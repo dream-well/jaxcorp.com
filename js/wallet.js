@@ -102,7 +102,7 @@ let contracts;
 let contracts_provider;
 let web3_provider;
 async function getContractAddresses() {
-    web3_provider = new Web3(networks[active_network].ws);
+    web3_provider = new Web3(networks[active_network].url);
     const contractsInfo = {
         "wjax":{"address":"0x783f4A2EfAB4f34D6a0D88b71cf1FAc6d9B46FF0"},
         "ubi":{"address":"0x7ee1108Ff76b9aE2bC444dcCf3eaE92DcD60DF61",
@@ -114,6 +114,7 @@ async function getContractAddresses() {
     contracts_provider = {};
     if(web3)
         init_contracts(web3, contracts, contractsInfo);
+
     init_contracts(web3_provider, contracts_provider, contractsInfo);
     if(typeof check_status != "undefined") check_status();
 }
@@ -123,11 +124,11 @@ function init_contracts(web3, contracts, contractsInfo) {
         const info = contractsInfo[key];
         if(!info.abi) {
             contracts[key] = new web3.eth.Contract(minABI, info.address)
-            contracts_provider[key] = new web3_provider.eth.Contract(minABI, info.address)
+            // contracts_provider[key] = new web3_provider.eth.Contract(minABI, info.address)
             continue;
         }
         contracts[key] = new web3.eth.Contract(info.abi, info.address);
-        contracts_provider[key] = new web3_provider.eth.Contract(info.abi, info.address);
+        // contracts_provider[key] = new web3_provider.eth.Contract(info.abi, info.address);
     }
 }
 

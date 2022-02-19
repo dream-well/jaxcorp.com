@@ -81,7 +81,7 @@
             <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2">
                 <img src="img/icon1.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid (WJAX)</h4>
-                <h2 class="text-blue text-center totalUbiPaid">102,210</h2>
+                <h2 class="text-blue text-center totalUbiPaid">0</h2>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon2.svg" class="pb-4" width="60px">
                 <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries</h4>
-                <h2 class="text-blue text-center ubiBenefeciariesCount">4</h2>
+                <h2 class="text-blue text-center ubiBenefeciariesCount">1</h2>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI per person</h4>
-                <h2 class="text-blue text-center totalUbiPerPerson">27,202.5</h2>
+                <h2 class="text-blue text-center totalUbiPerPerson">10,000</h2>
               </div>
             </div>
           </div>
