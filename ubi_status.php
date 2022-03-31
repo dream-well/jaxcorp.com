@@ -105,7 +105,7 @@
                     <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                             <p class="pb-0 mb-0 alert-warning border-radius p-2" style="font-size: 12px;">ID proof Submitted</p>
                         </span></h3>
-                    <p class="text-blue">Please verify your account by completing KYC.</p>
+                    <p class="text-blue">Please contact a UBI Governor (or) UBI Ambassador in order to complete your enrollment.</p>
                     
                     <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
                     <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
