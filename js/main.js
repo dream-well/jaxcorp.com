@@ -70,7 +70,7 @@ async function check_status() {
                 $(".btn_verify").attr("disabled", false)
             }
         } else {
-            $(".btn_verify").html("CHECKING STATUS ...");
+            // $(".btn_verify").html("CHECKING STATUS ...");
         }
     }
     if(userInfo.status == 2) {
