@@ -51,15 +51,15 @@ async function check_status() {
                 return;
             }
             if(data.status == "") { return; }
-            if(data.status == 'continue'){
-                if(data.status == 'submitted') {
+            switch(data.status) {
+                case 'approved':
+                case 'submitted':
                     $(".ubi_not_kyc").hide();
                     $(".ubi_id_submitted").show();
                     return;
-                }
-                else {
-                    $(".btn_verify").html("CONTINUE VERIFICATION");
-                }
+            }
+            if(data.status == 'continue'){
+                $(".btn_verify").html("CONTINUE VERIFICATION");
             }
             if(data.status == 'expired' || data.status == 'abandoned') {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
