@@ -214,7 +214,7 @@
                 <!-- ALL CONNECTED -->
 
                 <!-- Declined UBI STATUS -->
-                <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_declined">
+                <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_declined" style="display:none">
                     <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                             <p class="pb-0 mb-0 alert-danger border-radius p-2" style="font-size: 12px;">Declined</p>
                         </span></h3>
@@ -253,7 +253,7 @@ include "includes/modal.php";
 
 ?>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v1"></script>
 </body>
 
 </html>
