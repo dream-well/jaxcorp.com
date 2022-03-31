@@ -65,7 +65,10 @@ async function check_status() {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
             }
             if(data.status == 'declined') {
-                $(".btn_verify").html("DECLINED, TRY AGIAN?")
+                $(".btn_verify").html("YOUR KYC GOT REJECT, PLEASE TRY AGIAN")
+            }
+            if(data.status == 'resubmission_requested') {
+                $(".btn_verify").html("RESUBMISSION REQUESTED, TRY AGAIN")
             }
             if(data.status == 'approved') {
                 $(".btn_verify").hide();
@@ -88,6 +91,7 @@ async function check_status() {
     }
     if(userInfo.status == 3) {
         $(".ubi_declined").show();
+        
     }
 }
 
@@ -134,7 +138,6 @@ async function _verify() {
         case "declined":
         case "expired":
         case "abandoned":
-        case "rejected":
             const waiting_notifier = notifier.info(
                 `Waiting for server response`,
                 {durations: {info: 0}, labels: {info: "Creating new session"}, icons: {info: "spinner fa-spin"}})

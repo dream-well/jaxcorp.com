@@ -230,7 +230,8 @@
                             <p class="pb-0 mb-0 alert-danger border-radius p-2" style="font-size: 12px;">Declined</p>
                         </span></h3>
                     <p class="text-blue">Your request to join UBI program was declined. </p>
-                    <a href="#" class="btn btn-info btn-lg mb-4">Try again</a>
+                    <!-- <a href="#" class="btn btn-info btn-lg mb-4">Try again</a> -->
+                    <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
                     <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
                   </div>
                     
