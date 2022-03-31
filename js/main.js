@@ -32,16 +32,18 @@ async function check_status() {
     const count = await callSmartContract(contracts.ubi, "userCount");
     console.log("count", count);
     const userInfo = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
+    const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
         $(".ubi_signup").show();
     }
     if(userInfo.status == 1){
-        $(".ubi_not_kyc").show();
+        if(is_id_proof) 
+            $(".ubi_id_submitted").show();
+        else
+            $(".ubi_not_kyc").show();
         const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
     
-        $(".btn_verify").show();
-        $(".btn_telegram").hide();
         if(data.type == 'success') {
             if(data.user.publicKey != accounts[0]){
                 $(".btn_verify").html("&nbsp");
@@ -50,13 +52,15 @@ async function check_status() {
             if(data.status == "") { return; }
             if(data.status == 'continue'){
                 if(data.user.status == 'finished') {
-                    $(".btn_verify").hide();
-                    $(".btn_telegram").show();
+                    $(".ubi_not_kyc").hide();
+                    $(".ubi_id_submitted").show();
+                    return;
                 }
                 else {
                     $(".btn_verify").html("CONTINUE VERIFICATION");
                 }
             }
+            $(".ubi_id_submitted").hide();
             if(data.status == 'expired' || data.status == 'abandoned') {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
             }
