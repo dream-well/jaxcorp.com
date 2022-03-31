@@ -91,23 +91,29 @@ async function verify() {
     const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
     
     const user = data.user;
+    let veriffLink;
     switch(data.status) {
         case "approved":
+            return;
         case "declined":
         case "expired":
         case "abandoned":
-            return;
+            const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
+            if(newdata.type == "success") {
+                veriffLink = data.sessionToken;
+            }
+            break;
+        default:
+            if(data.type == 'failed') {
+                const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
+                if(newdata.type == "success") {
+                    veriffLink = data.sessionToken;
+                }
+                else return;
+            }
+            else
+                veriffLink = `https://alchemy.veriff.com/v/${user.sessionToken}`;
     }
-    let veriffLink;
-    if(data.type == 'failed') {
-        const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
-        if(newdata.type == "success") {
-            veriffLink = data.sessionToken;
-        }
-        return;
-    }
-    else
-        veriffLink = `https://alchemy.veriff.com/v/${user.sessionToken}`;
     window.veriffSDK.createVeriffFrame({ url: veriffLink,
         onEvent: async function(msg) {
             switch(msg) {
