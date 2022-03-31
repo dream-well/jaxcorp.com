@@ -144,10 +144,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+                  <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
                     <h3 class="text-blue">My UBI</h3>
                   
-                    <!-- table start-->
+                    <!-- table start
                     <div class="restable myyield " id="results">
                       <div class="theader">
                         <div class="table_header pt-md-3 pb-md-3 pt-1 pb-1 pl-3">Date</div>           
@@ -176,8 +176,8 @@
                         </div>
                       </div>
                   
-                    <!-- table end--> 
-                  </div>
+                    <!-- table end
+                  </div> -->
                   </div>
                 </div>
                 <!--  -->
