@@ -129,9 +129,12 @@ async function _verify() {
     switch(data.status) {
         case "approved":
             return;
+        case "submitted":
+            return;
         case "declined":
         case "expired":
         case "abandoned":
+        case "rejected":
             const waiting_notifier = notifier.info(
                 `Waiting for server response`,
                 {durations: {info: 0}, labels: {info: "Creating new session"}, icons: {info: "spinner fa-spin"}})
