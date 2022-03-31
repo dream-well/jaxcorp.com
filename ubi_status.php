@@ -253,7 +253,7 @@ include "includes/modal.php";
 
 ?>
 
-<script src="js/main.js?v1"></script>
+<script src="js/main.js?v2"></script>
 </body>
 
 </html>
