@@ -76,9 +76,9 @@ async function check_status() {
     if(userInfo.status == 2) {
         $(".ubi_connected").show();
         get_pending_ubi();
-        get_total_ubi();
-        get_user_count();
-        get_history();
+        // get_total_ubi();
+        // get_user_count();
+        // get_history();
     }
     if(userInfo.status == 3) {
         $(".ubi_declined").show();
@@ -174,11 +174,12 @@ async function _verify() {
 
 async function get_pending_ubi() {
     let totalRewardPerPerson = await callSmartContract(contracts.ubi, "totalRewardPerPerson");
-    let {harvestedReward, collectedReward} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
-    let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 4);
-    let total_ubi = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward).add(BN(collectedReward))).toString(), 4, 4);
+    let {harvestedReward, collectedReward, releasedReward} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
+    let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 2);
+    let total_ubi = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward).add(BN(collectedReward))).toString(), 4, 2);
+    let under_process = formatUnit(BN(collectedReward).sub(BN(releasedReward)).toString(), 4, 2);
     $(".pending_ubi").html(Number(reward).toLocaleString());
-    $(".total_ubi").html(Number(total_ubi).toLocaleString());
+    $(".under_process").html(Number(under_process).toLocaleString());
 }
 
 async function get_user_count() {

@@ -59,7 +59,7 @@
             <div class="col-12 col-md-12 ubi_all_div" style="display:none">
                 <!-- no connected UBI STATUS -->
                 <div class="">
-                    <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_connect">
+                    <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_connect" style="display:none">
                         <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                                 <p class="pb-0 mb-0 alert-danger border-radius p-2" style="font-size: 12px;">Not
                                     Connected</p>
@@ -72,7 +72,7 @@
                     </div>
                     <!-- no connected UBI STATUS -->
                     <!-- not registered SIGUP -->
-                    <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_signup">
+                    <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_signup" style="display:none">
                         <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                                 <p class="pb-0 mb-0 alert-dark border-radius p-2" style="font-size: 12px;">Not
                                     Registered</p>
@@ -87,7 +87,7 @@
                 </div>
                 <!-- not registered SIGUP -->
                 <!-- not registered  KYC verify-->
-                <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_kyc">
+                <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_kyc" style="display:none">
                     <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                             <p class="pb-0 mb-0 alert-warning border-radius p-2" style="font-size: 12px;">Not Registered
                             </p>
@@ -103,7 +103,7 @@
                 </div>
                  <!-- not registered KYC verify -->
                 <!-- ALL CONNECTED -->
-                <div class="ubi_connected">
+                <div class="ubi_connected" style="display:none">
                   <div class="bg-white box-shadow border-radius p-4 mb-4">
                       <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                               <p class="pb-0 mb-0 alert-success border-radius p-2" style="font-size: 12px;">Approved</p>
@@ -115,9 +115,9 @@
           <div class="flex-fill d-flex">
             <div class="col-6 justify-content-start align-items-center">
               <p class="text-info font80 mb-0 d-block">Accumulated UBI</p>
-              <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJXN</small></h3>
+              <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi">&nbsp;</span> <small>WJXN</small></h3>
             </div>
-            <div class="col-6 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80">Process UBI</a></div>
+            <div class="col-6 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80" onclick="collect_ubi()">Process UBI</a></div>
           </div>
         </div>
 	
@@ -125,7 +125,7 @@
           <div class="flex-fill d-flex">
             <div class="col-4 justify-content-start align-items-center my-auto">
               <p class="text-info font80 mb-0 d-block">UBI under-process</p>
-              <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJXN</small></h3>
+              <h3 class="d-block mb-0 pb-0 text-blue"><span class="under_process">&nbsp;</span> <small>WJXN</small></h3>
             </div>
             <div class="col-4 justify-content-start align-items-center">
             <h6 class="pb-0 mb-0 text-blue pb-2">Please contact your UBI governor</h6>
