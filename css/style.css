@@ -939,11 +939,13 @@ a.article, a.article:hover {
 .btn-info.focus, .btn-info:focus {box-shadow: 0 0 0 0.2rem rgb(76 121 203 / 50%)!important;}
 .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle { background:#152172!important}
 
+.btn_telegram img { width: 25px; }
 /*-----------------------Voting------------*/
 @media screen and (max-width: 768px) {
 	.ubi h3 { font-size:120%}
 	.ubi p { font-size: 14px;}
 	.ubi .btn { font-size:14px;}
+  .btn_telegram img { width: 18px; }
 }
 
 .brdsuccess { border:solid 1px #28a745}

@@ -40,6 +40,8 @@ async function check_status() {
         $(".ubi_not_kyc").show();
         const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
     
+        $(".btn_verify").show();
+        $(".btn_telegram").hide();
         if(data.type == 'success') {
             if(data.user.publicKey != accounts[0]){
                 $(".btn_verify").html("&nbsp");
@@ -47,10 +49,13 @@ async function check_status() {
             }
             if(data.status == "") { return; }
             if(data.status == 'continue'){
-                $(".btn_verify").html("CONTINUE VERIFICATION");
-            }
-            if(data.status == 'finished') {
-                $(".btn_verify").html("WAITING DECISION");
+                if(data.user.status == 'finished') {
+                    $(".btn_verify").hide();
+                    $(".btn_telegram").show();
+                }
+                else {
+                    $(".btn_verify").html("CONTINUE VERIFICATION");
+                }
             }
             if(data.status == 'expired' || data.status == 'abandoned') {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
@@ -59,13 +64,13 @@ async function check_status() {
                 $(".btn_verify").html("DECLINED, TRY AGIAN?")
             }
             if(data.status == 'approved') {
-                $(".btn_verify").html("APPROVED");
-                $(".btn_verify").attr("disabled", true)
+                $(".btn_verify").hide();
+                $(".btn_telegram").show();
             } else {
                 $(".btn_verify").attr("disabled", false)
             }
         } else {
-            $(".btn_verify").html("GET VERIFIED");
+            $(".btn_verify").html("CHECKING STATUS ...");
         }
     }
     if(userInfo.status == 2) {
@@ -105,8 +110,8 @@ async function verify() {
 async function _verify() {
     if(accounts.length == 0) return;
     const waiting_notifier = notifier.info(
-        `waiting_notifier`,
-        {durations: {info: 0}, labels: {info: "Fetching verification status"}, icons: {info: "spinner fa-spin"}})
+        `Waiting for server response`,
+        {durations: {info: 0}, labels: {info: "Fetching session status"}, icons: {info: "spinner fa-spin"}})
     
     const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`).catch(waiting_notifier.remove);
     waiting_notifier.remove();
@@ -121,7 +126,7 @@ async function _verify() {
         case "abandoned":
             const waiting_notifier = notifier.info(
                 `Waiting for server response`,
-                {durations: {info: 0}, labels: {info: "Creating new veriff session"}, icons: {info: "spinner fa-spin"}})
+                {durations: {info: 0}, labels: {info: "Creating new session"}, icons: {info: "spinner fa-spin"}})
             
             const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]})
                 .catch(waiting_notifier.remove);
@@ -154,7 +159,11 @@ async function _verify() {
                 case 'CANCELED':
                     break;
                 case 'FINISHED':
-                    await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
+                    const waiting_notifier = notifier.info(
+                        `Waiting for server response`,
+                        {durations: {info: 0}, labels: {info: "Updating session status"}, icons: {info: "spinner fa-spin"}})                
+                    await axios.patch("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification}).catch(waiting_notifier.remove);
+                    waiting_notifier.remove();
                     check_status();
                     break;
             }
