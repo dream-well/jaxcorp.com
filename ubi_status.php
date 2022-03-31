@@ -78,8 +78,8 @@
                                 <p class="pb-0 mb-0 alert-dark border-radius p-2" style="font-size: 12px;">Not
                                     Registered</p>
                             </span></h3>
-                        <p class="text-blue">By signing up, you agree with our <a href="#" class="text-blue"
-                                style="text-decoration: underline">Terms and Conditions</a> and <a href="#"
+                        <p class="text-blue">By signing up, you agree with our <a target="_blank" href="<?=$terms_link?>" class="text-blue"
+                                style="text-decoration: underline">Terms and Conditions</a> and <a target="_blank" href="<?=$privacy_link?>"
                                 class="text-blue" style="text-decoration: underline">Privacy Policy</a>.</p>
                         <a href="#" class="btn btn-info btn-lg mb-4" onclick="signup();">Sign Up</a>
                         <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
@@ -93,8 +93,9 @@
                             <p class="pb-0 mb-0 alert-warning border-radius p-2" style="font-size: 12px;">Not Registered
                             </p>
                         </span></h3>
-                    <p class="text-blue">KYC Verification is required to continue your registration.</p>
-                    <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a>
+                    <p class="text-blue">Please contact a UBI Governor (or) UBI Ambassador in order to complete your enrollment.</p>
+                    <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom"> Open Telegram Chat</a>
+                    <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
                     <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718" class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
                 </p>
                 <div id='veriff-root'></div>
@@ -108,33 +109,41 @@
                           </span></h3>
                       <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
                       <p>Check your UBI payments below.</p>
-                      <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom"> Join Telegram Channel</a>
+                      <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom"> Join Telegram Channel</a>
                   </div>
                   <!--  -->
                   <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
-                      <div class="flex-fill d-flex">
-                          <div class="col-10 justify-content-start align-items-center row">
-                            <div class="col-6 justify-content-start align-items-center">
-                                <p class="text-info font80 mb-0 d-block">My Accumulated UBI</p>
-                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi"></span> <small>WJAX</small></h3>
-                            </div>
-                            <div class="col-6 justify-content-start align-items-center">
-                                <p class="text-info font80 mb-0 d-block">Ready for collection</p>
-                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi"></span> <small>WJAX</small></h3>
-                            </div>
-                        </div>
-                        <div class="col-2 d-flex justify-content-end align-items-center">
-                          <button onclick="collect_ubi();" class="btn btn-info btn-lg font80">Request a release</button>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+          <div class="flex-fill d-flex">
+            <div class="col-6 justify-content-start align-items-center">
+              <p class="text-info font80 mb-0 d-block">Accumulated UBI</p>
+              <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJXN</small></h3>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80">Process UBI</a></div>
+          </div>
+        </div>
+	
+	<div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+          <div class="flex-fill d-flex">
+            <div class="col-4 justify-content-start align-items-center my-auto">
+              <p class="text-info font80 mb-0 d-block">Under Process UBI</p>
+              <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJXN</small></h3>
+            </div>
+            <div class="col-4 justify-content-start align-items-center">
+            <h6 class="pb-0 mb-0 text-blue pb-2">Please contact your UBI governor</h6>
+                <p class="text-yellow pb-0 mb-0" style="line-height: 15px"><small>To get your UBI payment in your wallet. You can reach out us through our telegram chat</small></p>
+            
+              
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom" /> Open Telegram</a></div>
+          </div>
+        </div>
+                  <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
                     <div class="row d-flex">
                       <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
                         <p class="text-info font80 mb-0 d-block">Total UBI Fund Amount</p>
                         <h4 class="d-block mb-0 pb-0 text-blue"><span id="total_fund">&nbsp;</span> <small>WJXN</small></h4>
-                      </div>
-                  <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
+                    </div>
+                    <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
                         <p class="text-info font80 mb-0 d-block">Total UBI Collected</p>
                         <h4 class="d-block mb-0 pb-0 text-blue"><span id="total_collected">&nbsp;</span> <small>WJXN</small></h4>
                       </div>
@@ -143,7 +152,7 @@
                         <h4 class="d-block mb-0 pb-0 text-blue"><span id="userCount">&nbsp;</span></h4>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
                     <h3 class="text-blue">My UBI</h3>
                   
