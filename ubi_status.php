@@ -92,7 +92,7 @@
                             <p class="pb-0 mb-0 alert-warning border-radius p-2" style="font-size: 12px;">Not Registered
                             </p>
                         </span></h3>
-                    <p class="text-blue">Please upload your id proofs and get verified to proceed.</p>
+                    <p class="text-blue">Please verify your account by completing KYC.</p>
                     <button class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</button>
                     
                     <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram" style="display:none"><img src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
