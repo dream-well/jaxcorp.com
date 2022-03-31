@@ -60,8 +60,6 @@ async function check_status() {
                     $(".btn_verify").html("CONTINUE VERIFICATION");
                 }
             }
-            $(".ubi_id_submitted").hide();
-            $(".ubi_id_submitted").show();
             if(data.status == 'expired' || data.status == 'abandoned') {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
             }
@@ -77,6 +75,8 @@ async function check_status() {
         } else {
             // $(".btn_verify").html("CHECKING STATUS ...");
         }
+        $(".ubi_id_submitted").hide();
+        $(".ubi_not_kyc").show();
     }
     if(userInfo.status == 2) {
         $(".ubi_connected").show();
