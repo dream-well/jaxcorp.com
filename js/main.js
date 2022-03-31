@@ -38,7 +38,7 @@ async function check_status() {
     }
     if(userInfo.status == 1){
         $(".ubi_not_kyc").show();
-        const {data} = await axios.get(`http://192.168.0.156:8080/veriff/user/${accounts[0]}`);
+        const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
         if(data.type == 'success') {
             if(data.status == "") { return; }
             if(data.status == 'continue'){
@@ -88,7 +88,7 @@ async function signup() {
 
 async function verify() {
     if(accounts.length == 0) return;
-    const {data} = await axios.get(`http://192.168.0.156:8080/veriff/user/${accounts[0]}`);
+    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
     
     const user = data.user;
     switch(data.status) {
@@ -100,7 +100,7 @@ async function verify() {
     }
     let veriffLink;
     if(data.type == 'failed') {
-        const {data: newdata} = await axios.post(`http://192.168.0.156:8080/veriff/user`, {publicKey: accounts[0]});
+        const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
         if(newdata.type == "success") {
             veriffLink = data.sessionToken;
         }
@@ -116,7 +116,7 @@ async function verify() {
                 case 'CANCELED':
                     break;
                 case 'FINISHED':
-                    await axios.put("http://192.168.0.156:8080/veriff/user", {status: 'finished', ...response.verification});
+                    await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
                     check_status();
                     break;
             }
