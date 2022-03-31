@@ -98,7 +98,7 @@ async function verify() {
         case "declined":
         case "expired":
         case "abandoned":
-            const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
+            const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
             if(newdata.type == "success") {
                 veriffLink = data.sessionToken;
             }
