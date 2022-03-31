@@ -107,9 +107,7 @@
                       <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                               <p class="pb-0 mb-0 alert-success border-radius p-2" style="font-size: 12px;">Approved</p>
                           </span></h3>
-                      <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
-                      <p>Check your UBI payments below.</p>
-                      <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom"> Join Telegram Channel</a>
+                      <p class="text-blue">You’re successfully approved for the JAX UBI program.</p>
                   </div>
                   <!--  -->
                   <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
@@ -125,16 +123,16 @@
 	<div class="bg-white box-shadow border-radius p-4 mb-4 voting">
           <div class="flex-fill d-flex">
             <div class="col-4 justify-content-start align-items-center my-auto">
-              <p class="text-info font80 mb-0 d-block">Under Process UBI</p>
+              <p class="text-info font80 mb-0 d-block">UBI under-process</p>
               <h3 class="d-block mb-0 pb-0 text-blue">502,236.25 <small>WJXN</small></h3>
             </div>
             <div class="col-4 justify-content-start align-items-center">
             <h6 class="pb-0 mb-0 text-blue pb-2">Please contact your UBI governor</h6>
-                <p class="text-yellow pb-0 mb-0" style="line-height: 15px"><small>To get your UBI payment in your wallet. You can reach out us through our telegram chat</small></p>
-            
+                <p class="text-yellow pb-0 mb-0" style="line-height: 15px"><small>to collect your UBI payment. You can reach out through our telegram chat</small></p>
+  
               
             </div>
-            <div class="col-4 d-flex justify-content-end align-items-center"><a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom" /> Open Telegram</a></div>
+            <div class="col-4 d-flex justify-content-end align-items-center"><a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom" /> Open Telegram</a></div>
           </div>
         </div>
                   <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
