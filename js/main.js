@@ -39,7 +39,12 @@ async function check_status() {
     if(userInfo.status == 1){
         $(".ubi_not_kyc").show();
         const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
+    
         if(data.type == 'success') {
+            if(data.user.publicKey != accounts[0]){
+                $(".btn_verify").html("&nbsp");
+                return;
+            }
             if(data.status == "") { return; }
             if(data.status == 'continue'){
                 $(".btn_verify").html("CONTINUE VERIFICATION");
@@ -76,20 +81,36 @@ async function check_status() {
 }
 
 async function signup() {
-    const {success, gas, message}  = await runSmartContract(contracts.ubi, "register");
+    const {success, gas, message}  = await estimateGas(contracts.ubi, "register");
     if(!success) {
         notifier.warning(message);
         return;
     }
     await notifier.async(runSmartContract(contracts.ubi, "register")
-        , null, null, `Getting UBI`);
+        , null, null, `Sign up UBI`);
+    $(".btn_verify").html("GET VERIFIED");
     check_status();
 }
 
 async function verify() {
+    $(".btn_verify").prop('disabled', true);
+    try{
+        await _verify();
+    } catch(e){
+
+    }
+    $(".btn_verify").prop('disabled', false);
+}
+
+async function _verify() {
     if(accounts.length == 0) return;
-    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
+    const waiting_notifier = notifier.info(
+        `waiting_notifier`,
+        {durations: {info: 0}, labels: {info: "Fetching verification status"}, icons: {info: "spinner fa-spin"}})
     
+    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`).catch(waiting_notifier.remove);
+    waiting_notifier.remove();
+
     const user = data.user;
     let veriffLink;
     switch(data.status) {
@@ -98,16 +119,27 @@ async function verify() {
         case "declined":
         case "expired":
         case "abandoned":
-            const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
+            const waiting_notifier = notifier.info(
+                `Waiting for server response`,
+                {durations: {info: 0}, labels: {info: "Creating new veriff session"}, icons: {info: "spinner fa-spin"}})
+            
+            const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]})
+                .catch(waiting_notifier.remove);
+            waiting_notifier.remove();
             if(newdata.type == "success") {
-                veriffLink = data.user.sessionToken;
+                veriffLink = `https://alchemy.veriff.com/v/${newdata.user.sessionToken}`;
             }
             break;
         default:
             if(data.type == 'failed') {
-                const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]});
+                const waiting_notifier = notifier.info(
+                    `Creating new veriff session`,
+                    {durations: {info: 0}, labels: {info: "Waiting for server response"}, icons: {info: "spinner fa-spin"}})
+               
+                const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]}).catch(waiting_notifier.remove);
+                waiting_notifier.remove();
                 if(newdata.type == "success") {
-                    veriffLink = data.user.sessionToken;
+                    veriffLink = `https://alchemy.veriff.com/v/${newdata.user.sessionToken}`;
                 }
                 else return;
             }
