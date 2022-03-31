@@ -4,7 +4,7 @@
 
   $home_link = $base_url;
 
-  $ubi_status_link = $base_url."ubi_status.html";
+  $ubi_status_link = "ubi_status.html";
 
   $terms_link = $base_url."terms.html";
 

@@ -106,26 +106,78 @@
                       <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                               <p class="pb-0 mb-0 alert-success border-radius p-2" style="font-size: 12px;">Approved</p>
                           </span></h3>
-                      <p class="text-blue">You’re successfully approved for the JAX UBI program!</p>
+                      <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
                       <p>Check your UBI payments below.</p>
+                      <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px" style="vertical-align: text-bottom"> Join Telegram Channel</a>
                   </div>
                   <!--  -->
                   <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
                       <div class="flex-fill d-flex">
                           <div class="col-10 justify-content-start align-items-center row">
                             <div class="col-6 justify-content-start align-items-center">
-                                <p class="text-info font80 mb-0 d-block">Pending UBI</p>
-                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi"></span> <small>WJAX</small></h3>
+                                <p class="text-info font80 mb-0 d-block">My Accumulated UBI</p>
+                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi"></span> <small>WJAX</small></h3>
                             </div>
                             <div class="col-6 justify-content-start align-items-center">
-                                <p class="text-info font80 mb-0 d-block">Total UBI Paid </p>
-                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="paid_ubi"></span> <small>WJAX</small></h3>
+                                <p class="text-info font80 mb-0 d-block">Ready for collection</p>
+                                <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi"></span> <small>WJAX</small></h3>
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
-                          <button onclick="collect_ubi();" class="btn btn-info btn-lg font80">Collect</button>
+                          <button onclick="collect_ubi();" class="btn btn-info btn-lg font80">Request a release</button>
                         </div>
                       </div>
+                  </div>
+                  <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+                    <div class="row d-flex">
+                      <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
+                        <p class="text-info font80 mb-0 d-block">Total UBI Fund Amount</p>
+                        <h4 class="d-block mb-0 pb-0 text-blue"><span id="total_fund">&nbsp;</span> <small>WJXN</small></h4>
+                      </div>
+                  <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
+                        <p class="text-info font80 mb-0 d-block">Total UBI Collected</p>
+                        <h4 class="d-block mb-0 pb-0 text-blue"><span id="total_collected">&nbsp;</span> <small>WJXN</small></h4>
+                      </div>
+                      <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
+                        <p class="text-info font80 mb-0 d-block">Participants</p>
+                        <h4 class="d-block mb-0 pb-0 text-blue"><span id="userCount">&nbsp;</span></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+                    <h3 class="text-blue">My UBI</h3>
+                  
+                    <!-- table start-->
+                    <div class="restable myyield " id="results">
+                      <div class="theader">
+                        <div class="table_header pt-md-3 pb-md-3 pt-1 pb-1 pl-3">Date</div>           
+                        <div class="table_header pt-md-3 pb-md-3 pt-1 pb-1 pl-2">UBI Payment</div>
+                      </div>
+                      <div class="table_row">
+                        <div class="table_small">
+                          <div class="table_cell">Date</div>
+                          <div class="table_cell">19.08.2019 at 19:43</div>
+                        </div>
+                        
+                        <div class="table_small">
+                          <div class="table_cell">VRP Staking <span>Restake</span></div>
+                          <div class="table_cell"><span class="text-success">+ 63</span> WJXN</div>
+                        </div>
+                      </div>
+                      <div class="table_row">
+                        <div class="table_small">
+                          <div class="table_cell">Date</div>
+                          <div class="table_cell">19.08.2019 at 19:43</div>
+                        </div>
+                      
+                        <div class="table_small">
+                          <div class="table_cell">VRP Staking <span>Restake</span></div>
+                          <div class="table_cell"><span class="text-success">+ 63</span> WJXN</div>
+                        </div>
+                      </div>
+                  
+                    <!-- table end--> 
+                  </div>
                   </div>
                 </div>
                 <!--  -->

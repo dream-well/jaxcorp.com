@@ -4,7 +4,6 @@ const donate_wallet = '';
 let step = 0;
 
 
-
 void function main() {
     setInterval(check_status, 10000);
     web3.currentProvider.on("accountsChanged", _.debounce(check_status));
@@ -39,13 +38,26 @@ async function check_status() {
     }
     if(userInfo.status == 1){
         $(".ubi_not_kyc").show();
-        const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
+        const {data} = await axios.get(`http://192.168.0.156:8080/veriff/user/${accounts[0]}`);
         if(data.type == 'success') {
-            if(data.user.status == 'created'){
+            if(data.status == "") { return; }
+            if(data.status == 'continue'){
                 $(".btn_verify").html("CONTINUE VERIFICATION");
             }
-            if(data.user.status == 'finished') {
+            if(data.status == 'finished') {
                 $(".btn_verify").html("WAITING DECISION");
+            }
+            if(data.status == 'expired' || data.status == 'abandoned') {
+                $(".btn_verify").html("EXPIRED, TRY AGIAN?")
+            }
+            if(data.status == 'declined') {
+                $(".btn_verify").html("DECLINED, TRY AGIAN?")
+            }
+            if(data.status == 'approved') {
+                $(".btn_verify").html("APPROVED");
+                $(".btn_verify").attr("disabled", true)
+            } else {
+                $(".btn_verify").attr("disabled", false)
             }
         } else {
             $(".btn_verify").html("GET VERIFIED");
@@ -54,6 +66,8 @@ async function check_status() {
     if(userInfo.status == 2) {
         $(".ubi_connected").show();
         get_pending_ubi();
+        get_total_ubi();
+        get_user_count();
         get_history();
     }
     if(userInfo.status == 3) {
@@ -74,78 +88,69 @@ async function signup() {
 
 async function verify() {
     if(accounts.length == 0) return;
-    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
-    if(data.type == 'success') {
-        const user = data.user;
-        if(user.status == 'created'){
-            const veriffLink = `https://alchemy.veriff.com/v/${user.sessionToken}`;
-            window.veriffSDK.createVeriffFrame({ url: veriffLink,
-                onEvent: async function(msg) {
-                    switch(msg) {
-                      case 'STARTED':
-                          break;
-                      case 'CANCELED':
-                          break;
-                      case 'FINISHED':
-                          await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
-                          check_status();
-                          break;
-                    }
-                  }
-                })
-        }
-        if(data.status == 'finished') {
-            alert('Please wait the verification result');
+    const {data} = await axios.get(`http://192.168.0.156:8080/veriff/user/${accounts[0]}`);
+    
+    const user = data.user;
+    switch(data.status) {
+        case "approved":
+        case "declined":
+        case "expired":
+        case "abandoned":
+            return;
+    }
+    let veriffLink;
+    if(data.type == 'failed') {
+        const {data: newdata} = await axios.post(`http://192.168.0.156:8080/veriff/user`, {publicKey: accounts[0]});
+        if(newdata.type == "success") {
+            veriffLink = data.sessionToken;
         }
         return;
     }
-    const veriff = Veriff({
-        host: 'https://stationapi.veriff.com',
-        apiKey: 'fc1cc71d-19e5-4e1d-bfae-749c1cb97e09',
-        parentId: 'veriff-root',
-        onSession: async function(err, response) {
-            console.log(response.verification);
-            const veriffFrame = window.veriffSDK.createVeriffFrame({ url: response.verification.url,
-            onEvent: async function(msg) {
-                console.log(msg);
-                switch(msg) {
-                  case 'STARTED':
-                      break;
-                  case 'CANCELED':
-                      $("#veriff-root").empty();
-                      break;
-                  case 'FINISHED':
-                      await axios.put("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification});
-                      check_status();
-                      break;
-                }
-              }
-
-             });
-            
-             await axios.post('https://beta.jax.money:8443/veriff/user', response.verification);
-        }
-      });
-      veriff.setParams({
-        person: {
-          givenName: ' ',
-          lastName: ' '
-        }
-      });
-      veriff.mount({
-        formLabel: {
-          vendorData: 'Public Key Address'
-        }
-      });
-      $("#veriff-vendor-data").val(accounts[0]);
+    else
+        veriffLink = `https://alchemy.veriff.com/v/${user.sessionToken}`;
+    window.veriffSDK.createVeriffFrame({ url: veriffLink,
+        onEvent: async function(msg) {
+            switch(msg) {
+                case 'STARTED':
+                    break;
+                case 'CANCELED':
+                    break;
+                case 'FINISHED':
+                    await axios.put("http://192.168.0.156:8080/veriff/user", {status: 'finished', ...response.verification});
+                    check_status();
+                    break;
+            }
+            }
+        })
+    
 }
 
 async function get_pending_ubi() {
     let totalRewardPerPerson = await callSmartContract(contracts.ubi, "totalRewardPerPerson");
-    let {harvestedReward} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
+    let {harvestedReward, collectedReward} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
     let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 4);
+    let total_ubi = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward).add(BN(collectedReward))).toString(), 4, 4);
     $(".pending_ubi").html(Number(reward).toLocaleString());
-    $(".paid_ubi").html(Number(formatUnit(harvestedReward, 4, 4)).toLocaleString());
+    $(".total_ubi").html(Number(total_ubi).toLocaleString());
+}
+
+async function get_user_count() {
+    let userCount = await callSmartContract(contracts.ubi, "userCount");
+    $("#userCount").html(userCount);
+}
+
+async function get_total_ubi() {
+    const events = await contracts.ubi.getPastEvents("Deposit_Reward", {
+        filter: {
+            user: accounts[0]
+        },
+        fromBlock: 'earliest',
+        toBlock: 'latest'
+
+    });
+    let total_ubi = events.map(each => formatUnit(each.returnValues.amount, 4, 4)).reduce((a,b) => a + parseInt(b), 0);
+    $("#total_fund").html(total_ubi);
+    $("#total_collected").html(0);
 }
 
 async function collect_ubi() {
