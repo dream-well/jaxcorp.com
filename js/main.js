@@ -61,6 +61,7 @@ async function check_status() {
                 }
             }
             $(".ubi_id_submitted").hide();
+            $(".ubi_id_submitted").show();
             if(data.status == 'expired' || data.status == 'abandoned') {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
             }
