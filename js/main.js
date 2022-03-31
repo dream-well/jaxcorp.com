@@ -60,7 +60,6 @@ async function check_status() {
                     $(".btn_verify").html("CONTINUE VERIFICATION");
                 }
             }
-            $(".ubi_id_submitted").hide();
             if(data.status == 'expired' || data.status == 'abandoned') {
                 $(".btn_verify").html("EXPIRED, TRY AGIAN?")
             }
@@ -76,6 +75,8 @@ async function check_status() {
         } else {
             // $(".btn_verify").html("CHECKING STATUS ...");
         }
+        $(".ubi_id_submitted").hide();
+        $(".ubi_not_kyc").show();
     }
     if(userInfo.status == 2) {
         $(".ubi_connected").show();
@@ -113,15 +114,17 @@ async function verify() {
 
 async function _verify() {
     if(accounts.length == 0) return;
+
+    let publicKey = accounts[0];
     const waiting_notifier = notifier.info(
         `Waiting for server response`,
         {durations: {info: 0}, labels: {info: "Fetching session status"}, icons: {info: "spinner fa-spin"}})
     
-    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`).catch(waiting_notifier.remove);
+    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${publicKey}`).catch(waiting_notifier.remove);
     waiting_notifier.remove();
 
     const user = data.user;
-    let veriffLink;
+    let sessionToken;
     switch(data.status) {
         case "approved":
             return;
@@ -132,11 +135,11 @@ async function _verify() {
                 `Waiting for server response`,
                 {durations: {info: 0}, labels: {info: "Creating new session"}, icons: {info: "spinner fa-spin"}})
             
-            const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]})
+            const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: publicKey})
                 .catch(waiting_notifier.remove);
             waiting_notifier.remove();
             if(newdata.type == "success") {
-                veriffLink = `https://alchemy.veriff.com/v/${newdata.user.sessionToken}`;
+                sessionToken = newdata.user.sessionToken;
             }
             break;
         default:
@@ -145,17 +148,17 @@ async function _verify() {
                     `Creating new veriff session`,
                     {durations: {info: 0}, labels: {info: "Waiting for server response"}, icons: {info: "spinner fa-spin"}})
                
-                const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: accounts[0]}).catch(waiting_notifier.remove);
+                const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: publicKey}).catch(waiting_notifier.remove);
                 waiting_notifier.remove();
                 if(newdata.type == "success") {
-                    veriffLink = `https://alchemy.veriff.com/v/${newdata.user.sessionToken}`;
+                    sessionToken = newdata.user.sessionToken;
                 }
                 else return;
             }
             else
-                veriffLink = `https://alchemy.veriff.com/v/${user.sessionToken}`;
+                sessionToken = user.sessionToken;
     }
-    window.veriffSDK.createVeriffFrame({ url: veriffLink,
+    window.veriffSDK.createVeriffFrame({ url: `https://alchemy.veriff.com/v/${sessionToken}`,
         onEvent: async function(msg) {
             switch(msg) {
                 case 'STARTED':
@@ -166,7 +169,7 @@ async function _verify() {
                     const waiting_notifier = notifier.info(
                         `Waiting for server response`,
                         {durations: {info: 0}, labels: {info: "Updating session status"}, icons: {info: "spinner fa-spin"}})                
-                    await axios.patch("https://beta.jax.money:8443/veriff/user", {status: 'finished', ...response.verification}).catch(waiting_notifier.remove);
+                    await axios.patch("https://beta.jax.money:8443/veriff/user/" + publicKey, {status: 'submitted', sessionToken}).catch(waiting_notifier.remove);
                     waiting_notifier.remove();
                     check_status();
                     break;
