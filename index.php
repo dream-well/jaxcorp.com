@@ -290,7 +290,7 @@ With the increased adoption of our energy-standard monetary system, every user s
   <!-- modal -->
   <!-- Modal -->
 
-
+   
 </main>
 
 <?php

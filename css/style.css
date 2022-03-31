@@ -1027,3 +1027,6 @@ a.article, a.article:hover {
   padding-bottom: 0;
   margin-bottom: 0;
 }
+.copied {
+  border: 1px solid green;
+}

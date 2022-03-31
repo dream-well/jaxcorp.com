@@ -230,6 +230,7 @@ include "includes/modal.php";
 <script src='https://cdn.veriff.me/sdk/js/1.1/veriff.min.js'></script>
 <script src='https://cdn.veriff.me/incontext/js/v1/veriff.js'></script>
 
+ 
 
 </main>
 <?php
