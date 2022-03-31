@@ -29,9 +29,10 @@ async function check_status() {
         $(".ubi_not_connect").show();
         return;
     }
+    let publicKey = accounts[0];
     const count = await callSmartContract(contracts.ubi, "userCount");
     console.log("count", count);
-    const userInfo = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
+    const userInfo = await callSmartContract(contracts.ubi, "userInfo", publicKey);
     const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
@@ -42,16 +43,16 @@ async function check_status() {
             $(".ubi_id_submitted").show();
         else
             $(".ubi_not_kyc").show();
-        const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${accounts[0]}`);
+        const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${publicKey}`);
     
         if(data.type == 'success') {
-            if(data.user.publicKey != accounts[0]){
+            if(data.user.publicKey != publicKey.toLowerCase()){
                 $(".btn_verify").html("&nbsp");
                 return;
             }
             if(data.status == "") { return; }
             if(data.status == 'continue'){
-                if(data.user.status == 'finished') {
+                if(data.status == 'submitted') {
                     $(".ubi_not_kyc").hide();
                     $(".ubi_id_submitted").show();
                     return;
@@ -166,14 +167,15 @@ async function _verify() {
                 case 'CANCELED':
                     break;
                 case 'FINISHED':
-                    const waiting_notifier = notifier.info(
-                        `Waiting for server response`,
-                        {durations: {info: 0}, labels: {info: "Updating session status"}, icons: {info: "spinner fa-spin"}})                
-                    await axios.patch("https://beta.jax.money:8443/veriff/user/" + publicKey, {status: 'submitted', sessionToken}).catch(waiting_notifier.remove);
-                    waiting_notifier.remove();
-                    check_status();
+                    // const waiting_notifier = notifier.info(
+                    //     `Waiting for server response`,
+                    //     {durations: {info: 0}, labels: {info: "Updating session status"}, icons: {info: "spinner fa-spin"}})                
+                    // await axios.patch("https://beta.jax.money:8443/veriff/user/" + publicKey, {status: 'submitted', sessionToken}).catch(waiting_notifier.remove);
+                    // waiting_notifier.remove();
+                    
                     break;
             }
+            check_status();
             }
         })
     
