@@ -195,6 +195,7 @@ async function get_pending_ubi() {
     let under_process = formatUnit(BN(collectedReward).sub(BN(releasedReward)).toString(), 4, 2);
     $(".pending_ubi").html(Number(reward).toLocaleString());
     $(".under_process").html(Number(under_process).toLocaleString());
+    $(".total_ubi_paid").html(Number(total_ubi).toLocaleString());
 }
 
 async function get_user_count() {
