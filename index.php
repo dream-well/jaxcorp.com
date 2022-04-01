@@ -90,7 +90,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon2.svg" class="pb-4" width="60px">
                 <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries</h4>
-                <h2 class="text-blue text-center ubiBenefeciariesCount">1</h2>
+                <h2 class="text-blue text-center ubiBenefeciariesCount">0</h2>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
               <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI per person</h4>
-                <h2 class="text-blue text-center totalUbiPerPerson">10,000</h2>
+                <h2 class="text-blue text-center totalUbiPerPerson">0</h2>
               </div>
             </div>
           </div>
@@ -311,45 +311,6 @@ With the increased adoption of our energy-standard monetary system, every user s
 
 ?>
 
-<script>
-
-
-async function get_statistics() {
-  if(!contracts_provider) return;
-  let [
-    ubiBenefeciariesCount,
-    totalUbiPerPerson
-  ] = await Promise.all(
-      [
-        callSmartContract(contracts_provider.ubi, "userCount"),
-        callSmartContract(contracts_provider.ubi, "totalRewardPerPerson")
-      ]
-    );
-  $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
-  $(".totalUbiPerPerson").html(formatUnit(totalUbiPerPerson, 4, 4).toLocaleString());
-
-}
-var once = true;
-async function check_status() {
-  get_statistics();
-  if(contracts_provider && once) {
-    once = false;
-    totalUbiPaid = 0;
-    contracts_provider.ubi.events.Deposit_Reward({
-      fromBlock: 0
-    }, function(error, event) {
-
-    }).on('data', function(event) {
-      console.log("event", event.returnValues.amount);
-      totalUbiPaid += Number(formatUnit(event.returnValues.amount, 4, 4));
-      $(".totalUbiPaid").html(totalUbiPaid.toLocaleString());
-    })
-  }
-}
-
-check_status();
-setTimeout(check_status, 2000);
-setInterval(check_status, 60000);
-</script>
+<script src="js/index.js"></script>
 </body>
 </html>
