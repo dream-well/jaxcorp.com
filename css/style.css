@@ -1032,3 +1032,19 @@ a.article, a.article:hover {
 .copied {
   border: 1px solid green;
 }
+
+@media (max-width: 992px) {
+  .navbar-nav .btn.my-2.my-sm-0 {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  .navbar-nav .homeselect {
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar-nav .homeselect .dropdown,
+  .navbar-nav .homeselect .btn_connect,
+  .navbar-nav .homeselect .select.selectwal{
+    width: 100%;
+  }
+}
