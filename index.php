@@ -76,32 +76,29 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-4">
-            <div class="text-center">
+            
 
-            <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2">
+              <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100 text-center">
                 <img src="img/icon1.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI Paid (WJAX)</h4>
                 <h2 class="text-blue text-center totalUbiPaid">0</h2>
               </div>
-            </div>
           </div>
           <div class="col-12 col-sm-4">
-            <div class="text-center">
-              <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
-                <img src="img/icon2.svg" class="pb-4" width="60px">
+            
+              <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100 text-center ">
+                <img src="img/icon2.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries</h4>
                 <h2 class="text-blue text-center ubiBenefeciariesCount">0</h2>
               </div>
-            </div>
           </div>
           <div class="col-12 col-sm-4">
-            <div class="text-center">
-              <div class="p-5 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100">
+            
+              <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100 text-center ">
                 <img src="img/icon3.svg" class="pb-4" width="70px">
                 <h4 class="text-blue font-weight-normal pb-4">Total UBI per person</h4>
                 <h2 class="text-blue text-center totalUbiPerPerson">0</h2>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -113,19 +110,19 @@
     <h3 class="text-blue font-weight-bold pb-4 text-center">How to start?</h3>
     <div class="d-flex bridgetext mb-2 mb-md-4">
 		<div class="col-12 col-md-4">
-        <div class="p-5 bg-lighterblue border-radius box-shadow mb-2">
+        <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow mb-2 h-100 text-center">
 			<h2 class="text-blue text-center">1</h2>
           <h4 class="text-blue font-weight-normal text-center">Connect your Metamask wallet to register</h4>         
         </div>
       </div>
 		<div class="col-12 col-md-4">
-        <div class="p-5 bg-lighterblue border-radius box-shadow mb-2 h-100">
+        <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow mb-2 text-center h-100">
 			<h2 class="text-blue text-center">2</h2>
           <h4 class="text-blue font-weight-normal text-center">Pass KYC verification</h4>         
         </div>
       </div>
 		<div class="col-12 col-md-4">
-        <div class="p-5 bg-lighterblue border-radius box-shadow mb-2 h-100">
+        <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow mb-2  text-center h-100">
 			<h2 class="text-blue text-center">3</h2>
           <h4 class="text-blue font-weight-normal text-center">Claim your UBI</h4>         
         </div>
