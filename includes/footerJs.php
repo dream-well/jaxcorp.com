@@ -76,3 +76,8 @@
         });
     </script>
  
+ <script>
+	 if (window.location.hash == "#imprint") {
+     $('#exampleModalCenter').modal('show');
+}
+ </script>
