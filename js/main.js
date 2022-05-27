@@ -32,7 +32,7 @@ async function check_status() {
     let publicKey = accounts[0];
     const count = await callSmartContract(contracts.ubi, "userCount");
     console.log("count", count);
-    const userInfo = await callSmartContract(contracts.ubi, "userInfo", publicKey);
+    const userInfo = await callSmartContract(contracts.ubi, "get_user_info", publicKey);
     const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
