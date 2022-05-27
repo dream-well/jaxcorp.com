@@ -4,6 +4,6 @@ const abis = {
 }
 
 const addresses = {
-    ubi: '0x7ee1108Ff76b9aE2bC444dcCf3eaE92DcD60DF61',
-    wjax: '0x783f4A2EfAB4f34D6a0D88b71cf1FAc6d9B46FF0'
+    ubi: '0x9a7B81542e9EBb9Be499660D1599b6ba60e7a4e2',
+    wjax: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc'
 }

@@ -1,7 +1,7 @@
 let web3;
 let accounts = [];
 let mode = "test";
-let active_network = "bsctestnet";
+let active_network = "bscmainnet";
 let testnet_chain_id = "0x61";
 let markup_fee_decimal = 8;
 //https://f3oall.github.io/awesome-notifications/docs/
@@ -24,7 +24,7 @@ let networks = {
         symbol: 'BNB'
     },
     bscmainnet: {
-        url: `https://bsc-dataseed1.binance.org/`,
+        url: `https://bscrpc.com`,
         chainId: 0x38,
         chainName: 'Binance Smart Chain Mainnet',
         blockExplorer: 'https://bscscan.com',
