@@ -1,7 +1,7 @@
 let web3;
 let accounts = [];
 let mode = "test";
-let active_network = "bscmainnet";
+let active_network = "polygonmainnet";
 let testnet_chain_id = "0x61";
 let markup_fee_decimal = 8;
 //https://f3oall.github.io/awesome-notifications/docs/
@@ -31,10 +31,11 @@ let networks = {
         symbol: 'BNB'
     },
     polygonmainnet: {
-        url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet`,
-        ws: `wss://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mainnet/ws`,
+        url: `https://polygon-rpc.com`,
         chainId: 0x89,
-        symbol: 'MATIC'
+        symbol: 'MATIC',
+        blockExplorer: 'https://polygonscan.com',
+        chainName: 'Polygon Mainnet'
     },
     polygontestnet: {
         url: `https://speedy-nodes-nyc.moralis.io/63021305c6423bed5d079c57/polygon/mumbai`,
