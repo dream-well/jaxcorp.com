@@ -5,5 +5,5 @@ const abis = {
 
 const addresses = {
     ubi: '0x9a7B81542e9EBb9Be499660D1599b6ba60e7a4e2',
-    wjax: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb'
+    wjax: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb',
 }

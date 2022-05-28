@@ -1,0 +1,44 @@
+body { background: #162272;font-family: 'Space Grotesk', sans-serif;}
+.ubiprog h1 { font-size:3vw}
+
+
+.text-yellow { color:#f3ba2f}
+.text-blue { color:#162272}
+.border-radius { border-radius: 15px;}
+.border-yellow { border:solid 1px #f3ba2f}
+.boxes span { background: #162272; border:solid 1px #f3ba2f; border-radius: 5px; position:absolute; color:#f3ba2f; width:40px; height:40px; line-height:40px; left:45%; font-size: 30px;}
+
+@media (max-width:700px) {
+	.ubiprog img { width:200px!important; margin: 0 auto; display: block}
+	.ubiprog h1 { font-size:7vw}
+
+	.ubiprog a img { width: auto!important; display: inline-block}
+	h4 { font-size:20px;}
+}
+.form-inline {
+	flex-flow: row nowrap !important;
+}
+.container {
+	margin-top: 100px !important;
+}
+nav {
+	background: #162272;
+}
+.custom-select {
+	background: #fff;
+	padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+}
+
+.btn-warning, .btn-warning:hover {	
+	background: #f3ba2f!important;
+	border: #f3ba2f!important;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active:focus, .btn-warning:not(:disabled):not(.disabled):active:focus, .show>.btn-warning.dropdown-toggle:focus {box-shadow: none!important}
+.btn-warning:not(:disabled):not(.disabled):active {
+	background-color: #f3ba2f!important;
+    border-color: #f3ba2f!important;
+	
+}
+
+.bg-blue { background: #0c1854}
