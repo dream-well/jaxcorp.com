@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
   <!-- <div class="mobhide ml-auto" id=""> -->
-  <a href="https://stake.jaxcorp.com/" target="_blank" class="btn btn-warning my-2 my-sm-0 mr-3 pt-2 pb-2 text-blue" >BUSD/USDT Staking</a>
+  <a href="https://stake.jaxcorp.com/" target="_blank" class="btn btn-warning my-2 my-sm-0 mr-3 pt-2 pb-2 text-white" >BUSD/USDT Staking</a>
     <a href="#" class="btn btn-info my-2 my-sm-0 mr-3 border-radius pt-2 pb-2"  data-toggle="modal" data-target=".bd-example-modal-lg"  >Donate</a>
          <a href="<?=$ubi_status_link?>" class="btn my-2 my-sm-0 mr-3 border-radius pt-2 pb-2 btn-success" >Collect UBI</a>
       <form class="form-inline my-2 my-lg-0 homeselect mr-3">
