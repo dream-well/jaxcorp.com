@@ -22,18 +22,23 @@
 
       <div class="col-12 col-md-6 my-auto">
         <div class="pb-3">
-          <div class="ajax">
-            <div class="box">
-              <div class="img">
-                <img src="img/ajaxprime.jpg">
+        <div class="ajax">
+              <div class="box">
+                <div class="img">
+                  <img src="img/ajaxprime.jpg">
+                </div>
+                
+                <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp DAO</span></h2>
+                <a href="https://testnet.bscscan.com/address/0x1bd064492b431df3b17e341dfc21a31bbA9CeBCF">
+                    "0x1bd064492b431df3b17e341dfc21a31bbA9CeBCF"
+                    </a>
+                <p class="text-blue"> "UBI is necessary for a meritocracy and to enhance equality of opportunity."</p>
+                <div class="d-flex justify-content-end">
+                     <a href="" class="btn btn-info"><i class="fa fa-download" aria-hidden="true"></i> Download HandBook</a>
+                </div>
+                
               </div>
-              <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp DAO</span></h2>
-              <p class="text-blue"> "UBI is necessary for a meritocracy and to enhance equality of opportunity."</p>
-              <span>
-
-              </span>
             </div>
-          </div>
         </div>
       </div>
       <div class="col-12 col-md-6 video">
