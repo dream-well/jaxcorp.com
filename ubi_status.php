@@ -143,13 +143,15 @@
           <!--  -->
           <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
             <div class="flex-fill d-flex">
-              <div class="col-4 justify-content-start align-items-center">
-                <p class="text-info font80 mb-0 d-block">Total UBI Paid</p>
-                <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi_paid">&nbsp;</span> <small>WJXN</small></h3>
-              </div>
-              <div class="col-4 justify-content-start align-items-center">
-                <p class="text-info font80 mb-0 d-block">Accumulated UBI</p>
-                <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi">&nbsp;</span> <small>WJAX</small></h3>
+              <div class="col-8 d-flex">
+                <div class=" justify-content-start align-items-center">
+                  <p class="text-info font80 mb-0 d-block">Total UBI Paid</p>
+                  <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi_paid">&nbsp;</span> <small>WJXN</small></h3>
+                </div>
+                <div class=" justify-content-start align-items-center">
+                  <p class="text-info font80 mb-0 d-block">Accumulated UBI</p>
+                  <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi">&nbsp;</span> <small>WJAX</small></h3>
+                </div>
               </div>
               <div class="col-4 d-flex justify-content-end align-items-center"><a href="#"
                   class="btn btn-info btn-lg font80" onclick="collect_ubi()">Process UBI</a></div>
@@ -158,20 +160,20 @@
 
           <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
             <div class="flex-fill d-flex">
-              <div class="col-4 justify-content-start align-items-center my-auto">
+              <div class="col-8 d-flex">
+              <div class=" justify-content-start align-items-center my-auto">
                 <p class="text-info font80 mb-0 d-block">UBI under-process</p>
                 <h3 class="d-block mb-0 pb-0 text-blue">
                   <span class="under_process">&nbsp;</span>
                   <small>WJAX</small>
                 </h3>
               </div>
-              <div class="col-4 justify-content-start align-items-center">
+              <div class="justify-content-start align-items-center">
                 <h6 class="pb-0 mb-0 text-blue pb-2">Please contact your UBI governor</h6>
                 <p class="text-yellow pb-0 mb-0" style="line-height: 15px">
                   <small>to collect your UBI payment. You can reach out through our telegram chat</small>
                 </p>
-
-
+              </div>
               </div>
               <div class="col-4 d-flex justify-content-end align-items-center"><a href="https://t.me/jax_chat"
                   class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
