@@ -1048,3 +1048,9 @@ a.article, a.article:hover {
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+.st_wrap {
+  flex-direction: column;
+}
+}
