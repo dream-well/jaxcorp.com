@@ -27,7 +27,7 @@
         <!-------------------------------------------------------------->
         <div class="select selectwal" tabindex="1">
           <input class="selectopt" name="test" type="radio" id="opt1" checked>
-          <label for="opt1" class="option">Binance Smart Chain</label>
+          <label for="opt1" class="option">Polygon</label>
         </div>
         <!-------------------------------------------------------------->
       </form>
