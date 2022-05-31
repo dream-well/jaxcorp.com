@@ -136,7 +136,7 @@
                 <p class="pb-0 mb-0 alert-success border-radius p-2" style="font-size: 12px;">Approved</p>
               </span></h3>
             <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
-            <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span> Ajax Prime</h5>
+            <!-- <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span>  </h5> -->
             <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                 style="vertical-align: text-bottom"> Join Telegram Channel</a>
           </div>
