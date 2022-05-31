@@ -11,7 +11,7 @@
               <div class="text-blue font-weight-bold text-center mb-4">
               Please send WJAX to this donation address and we will add it to the UBI pool.
               </div>
-              <div class="btn-block text-center btn-lightgrey text_copy_link" > 0x4b0A58380f62cF451a4b098A4514531C102c1be2</div>
+              <div class="btn-block text-center btn-lightgrey text_copy_link" > 0xAfa6A1663805C74a718923b828E1B3dEf68A2561</div>
           </div>
       </div>
         <!-- <div class="modal-body">
