@@ -20,6 +20,7 @@ function hide_all_steps() {
     $(".ubi_finish_kyc").hide();
     $(".ubi_connected").hide();
     $(".ubi_declined").hide();
+    $(".ubi_id_submitted").hide();
 }
 
 async function check_status() {
