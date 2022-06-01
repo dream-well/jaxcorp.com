@@ -145,11 +145,11 @@
             <div class="flex-fill d-flex st_wrap  align-items-center">
               <div class="col-12 col-md-8 d-flex justify-content-between">
                 <div class=" justify-content-start align-items-center">
-                  <p class="text-info font80 mb-0 d-block">Total UBI Paid</p>
+                  <p class="text-info font80 mb-0 d-block"> My Total UBI </p>
                   <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi_paid">&nbsp;</span> <small>WJAX</small></h3>
                 </div>
                 <div class=" justify-content-start align-items-center">
-                  <p class="text-info font80 mb-0 d-block">Accumulated UBI</p>
+                  <p class="text-info font80 mb-0 d-block">My Pending UBI</p>
                   <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi">&nbsp;</span> <small>WJAX</small></h3>
                 </div>
               </div>
@@ -162,7 +162,7 @@
             <div class="flex-fill d-flex st_wrap  align-items-center">
               <div class="col-12 col-md-8 d-flex justify-content-between">
               <div class=" justify-content-start align-items-center my-auto">
-                <p class="text-info font80 mb-0 d-block">UBI under-process</p>
+                <p class="text-info font80 mb-0 d-block">My UBI under-process</p>
                 <h3 class="d-block mb-0 pb-0 text-blue">
                   <span class="under_process">&nbsp;</span>
                   <small>WJAX</small>
@@ -258,7 +258,7 @@
       <!-- ALL CONNECTED -->
 
       <!-- Declined UBI STATUS -->
-      <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_declined" style="display:none">
+      <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_declined col-12" style="display:none">
         <h3 class="text-blue pb-3">My UBI status <span class="float-right">
             <p class="pb-0 mb-0 alert-danger border-radius p-2" style="font-size: 12px;">Declined</p>
           </span></h3>
