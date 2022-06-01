@@ -1,6 +1,6 @@
 
 async function get_statistics() {
-    const web3 = new Web3(networks[active_network].url);
+    const web3 = new Web3(networks[active_network()].url);
     const ubi = new web3.eth.Contract(abis.ubi, addresses.ubi);
     let [
       ubiBenefeciariesCount,

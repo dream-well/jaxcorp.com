@@ -1,13 +1,23 @@
 let web3;
 let accounts = [];
 let mode = "test";
-let active_network = "polygonmainnet";
+// let active_network = "polygonmainnet";
 let testnet_chain_id = "0x61";
 let markup_fee_decimal = 8;
 //https://f3oall.github.io/awesome-notifications/docs/
 let notifier;
 let BN;
 
+const Web3Modal = window.Web3Modal.default;
+const WalletConnectProvider = window.WalletConnectProvider.default;
+const EvmChains = window.EvmChains;
+const Fortmatic = window.Fortmatic;
+
+// Web3modal instance
+let web3Modal
+
+// Chosen wallet provider given by the dialog window
+let provider;
 
 let networks = {
     ethmainnet: {
@@ -102,8 +112,89 @@ let tokens = {
 let contracts;
 let contracts_provider;
 let web3_provider;
+
+function init_web3() {
+
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider,
+        options: {
+          // Mikko's test key - don't copy as your mileage may vary
+          rpc: {
+            1: "https://mainnet.infura.io/v3/6797126c4f0942d99b649046e1ade16d",
+            97: "https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/bsc/testnet",
+            56: `https://bsc-dataseed1.binance.org/`,
+            137: `https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/polygon/mainnet`,
+            80001: `https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/polygon/mumbai`,
+            43113: `https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/avalanche/testnet`,
+          }
+        }
+      },
+  
+      fortmatic: {
+        package: Fortmatic,
+        options: {
+          // Mikko's TESTNET api key
+          key: "pk_test_391E26A3B43A3350"
+        }
+      }
+    };
+  
+    web3Modal = new Web3Modal({
+      cacheProvider: false, // optional
+      providerOptions, // required
+    });
+  
+}
+
+async function onConnect() {
+
+    // console.log("Opening a dialog", web3Modal);
+    try {
+        if(Web3.givenProvider){
+            provider = Web3.givenProvider;
+        }
+        else{
+            provider = await web3Modal.connect();
+        }
+    } catch(e) {
+      console.log("Could not get a wallet connection", e);
+    //   onConnect();
+      return;
+    }
+
+    web3 = new Web3(provider);
+
+    web3.currentProvider.on("accountsChanged", _accounts => {
+        accounts = _accounts
+        if(is_wrong_network()) {
+            accounts = [];
+            on_wrong_network();
+        }
+        if (accounts.length == 0) {
+            reset_connect_button();
+        } else {
+            set_connected_address();
+        }
+    });
+
+    web3.currentProvider.on("chainChanged", () => {
+        if (parseInt(web3.currentProvider.chainId) != networks[active_network()].chainId) {
+            on_wrong_network();
+            accounts = [];
+        } else {
+            connect_wallet();
+        }
+    })
+
+    connect_wallet();
+
+    
+}
+
+
 async function getContractAddresses() {
-    web3_provider = new Web3(networks[active_network].url);
+    web3_provider = new Web3(networks[active_network()].url);
     const contractsInfo = {
         "wjax":{"address":"0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb"},
         "ubi":{"address":"0x9a7B81542e9EBb9Be499660D1599b6ba60e7a4e2",
@@ -151,42 +242,18 @@ function on_wrong_network() {
 
 void function main() {
 
+    init_web3();
     on_wallet_disconnected();
-    if(Web3.givenProvider) {
-        web3 = new Web3(Web3.givenProvider);
-    } else {
-        // Create a connector
-        const provider = new WalletConnectProvider({
-            bridge: "https://bridge.walletconnect.org", // Required
-        });
-        alert(provider);
-        web3 = new Web3(provider);
-    }
+
+    if(Web3.givenProvider)
+        connect_wallet();
+        
     BN = (str) => (new web3.utils.BN(str));
 
     getContractAddresses();
     // setTimeout(real_time_update, 500);
     // setInterval(real_time_update, 3000)
 
-    web3.currentProvider.on("accountsChanged", _accounts => {
-        accounts = _accounts
-        if (accounts.length == 0) {
-            on_wallet_disconnected();
-            reset_connect_button();
-        } else {            
-            set_connected_address();
-            check_status();
-        }
-    });
-
-    web3.currentProvider.on("chainChanged", () => {
-        if (web3.currentProvider.chainId != networks[active_network].chainId) {
-            on_wrong_network();
-            accounts = [];
-        } else {
-            connect_wallet();
-        }
-    })
     notifier = new AWN({
         position: "bottom-right",
         durations: {
@@ -202,25 +269,98 @@ void function main() {
         connect_wallet();
 }()
 
+async function onConnect() {
+
+    // console.log("Opening a dialog", web3Modal);
+    try {
+        if(Web3.givenProvider){
+            provider = Web3.givenProvider;
+        }
+        else{
+            provider = await web3Modal.connect();
+        }
+    } catch(e) {
+      console.log("Could not get a wallet connection", e);
+    //   onConnect();
+      return;
+    }
+
+    web3 = new Web3(provider);
+    web3.currentProvider.on("accountsChanged", _accounts => {
+        accounts = _accounts
+        if (accounts.length == 0) {
+            on_wallet_disconnected();
+            reset_connect_button();
+        } else {            
+            set_connected_address();
+            check_status();
+        }
+    });
+
+    web3.currentProvider.on("chainChanged", () => {
+        if (web3.currentProvider.chainId != networks[active_network()].chainId) {
+            on_wrong_network();
+            accounts = [];
+        } else {
+            connect_wallet();
+        }
+    })
+
+    connect_wallet();
+
+    
+}
+
 function connect_wallet() {
+    if(!web3){
+        onConnect();
+        return;
+    }
+    if(is_wrong_network()) {
+        switch_network();
+    }
+    if(web3.currentProvider.selectedAddress){
+        accounts = [web3.currentProvider.selectedAddress];
+        if(is_wrong_network()){
+            on_wrong_network();
+
+        }
+        else{
+            on_wallet_connected();
+            set_connected_address();    
+        }
+        return;
+    }
+    else if(web3.currentProvider.accounts && web3.currentProvider.accounts.length > 0) {
+        accounts = web3.currentProvider.accounts;
+        if(is_wrong_network()){
+            on_wrong_network();
+
+        }
+        else{
+            on_wallet_connected();
+            set_connected_address();    
+        }
+        return;
+    }
+
     return web3.eth.requestAccounts()
         .then(_accounts => {
             accounts = _accounts;
-            console.log(accounts);
-
-            if (web3.currentProvider.chainId != networks[active_network].chainId) {
+            // console.log(accounts);
+            if (parseInt(web3.currentProvider.chainId) != networks[active_network()].chainId) {
                 $(".btn_connect").html("Switch Network");
                 switch_network();
             } else {
+                on_wallet_connected();
                 set_connected_address();
             }
-            typeof check_status != 'undefined' && check_status();
         })
         .catch(error => {
             console.error(error);
         })
 
-}
+}       
 
 function disconnect_wallet() {
     accounts = [];
@@ -231,7 +371,7 @@ function disconnect_wallet() {
 function switch_network() {
     web3.currentProvider.request({
             method: "wallet_switchEthereumChain",
-            params: [{ chainId: "0x" + networks[active_network].chainId.toString(16) }]
+            params: [{ chainId: "0x" + networks[active_network()].chainId.toString(16) }]
         })
         .then(() => {
             set_connected_address();
@@ -244,7 +384,7 @@ function switch_network() {
 }
 
 function add_network() {
-    const network = networks[active_network];
+    const network = networks[active_network()];
     web3.currentProvider.request({
         method: 'wallet_addEthereumChain',
         params: [{
@@ -291,4 +431,14 @@ function set_connected_address() {
 async function add_to_wallet(token) {
     let {address, decimals, image} = tokens[token];
     await add_token_to_metamask(address, token, decimals, image);
+}
+
+function is_wrong_network() {
+    if(!web3 || accounts.length == 0) return false;
+    if(!active_network()) return false;
+    return parseInt(web3.currentProvider.chainId) != networks[active_network()].chainId;
+}
+
+function active_network() {
+    return "polygonmainnet";
 }

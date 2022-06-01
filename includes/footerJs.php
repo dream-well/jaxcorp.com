@@ -17,7 +17,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
 <script src="js/lodash.min.js"></script>
 <script src="js/awn.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.0/web3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.2-rc.0/web3.min.js" integrity="sha512-REWiGZVmhU2S5eIov/DuNrsq4djWnPaAHSvXrbLLLaI0r/gW+wh1utIzxt0iB4IQLgXhNDj5mR0YMBjrkKhVMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
 <script src="js/contracts.js"></script>
 <script src="js/wallet.js"></script>
 <script src="js/util.js"></script>
