@@ -967,6 +967,8 @@ a.article, a.article:hover {
   padding:20px;
   box-sizing:border-box;
   width:100%;
+  overflow: hidden;
+  position: relative;
 }
 .ajax .box .img {
   width:120px;
@@ -1047,4 +1049,10 @@ a.article, a.article:hover {
   .navbar-nav .homeselect .select.selectwal{
     width: 100%;
   }
+}
+
+@media (max-width: 768px) {
+.st_wrap {
+  flex-direction: column;
+}
 }
