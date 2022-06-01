@@ -7,3 +7,7 @@ const addresses = {
     ubi: '0x9a7B81542e9EBb9Be499660D1599b6ba60e7a4e2',
     wjax: '0xAfa6A1663805C74a718923b828E1B3dEf68A2561',
 }
+
+function get_contract(abi, address) {
+    return new web3.eth.Contract(abi, address);
+}

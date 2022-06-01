@@ -36,9 +36,9 @@ async function check_status() {
         return;
     }
     let publicKey = accounts[0];
-    const count = await callSmartContract(contracts.ubi, "userCount");
+    const count = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "userCount");
     console.log("count", count);
-    const userInfo = await callSmartContract(contracts.ubi, "get_user_info", publicKey);
+    const userInfo = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "get_user_info", publicKey);
     const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
@@ -102,12 +102,12 @@ async function check_status() {
 }
 
 async function signup() {
-    const {success, gas, message}  = await estimateGas(contracts.ubi, "register");
+    const {success, gas, message}  = await estimateGas(get_contract(abis.ubi, addresses.ubi), "register");
     if(!success) {
         notifier.warning(message);
         return;
     }
-    await notifier.async(runSmartContract(contracts.ubi, "register")
+    await notifier.async(runSmartContract(get_contract(abis.ubi, addresses.ubi), "register")
         , null, null, `Sign up UBI`);
     $(".btn_verify").html("GET VERIFIED");
     check_status();
@@ -194,8 +194,8 @@ async function _verify() {
 }
 
 async function get_pending_ubi() {
-    let totalRewardPerPerson = await callSmartContract(contracts.ubi, "totalRewardPerPerson");
-    let {harvestedReward, collectedReward, releasedReward, entryReward} = await callSmartContract(contracts.ubi, "get_user_info", accounts[0]);
+    let totalRewardPerPerson = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "totalRewardPerPerson");
+    let {harvestedReward, collectedReward, releasedReward, entryReward} = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "get_user_info", accounts[0]);
     let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 2);
     let total_ubi = formatUnit(BN(totalRewardPerPerson).sub(BN(entryReward)).toString(), 4, 2);
     let under_process = formatUnit(BN(collectedReward).sub(BN(releasedReward)).toString(), 4, 2);
@@ -205,12 +205,12 @@ async function get_pending_ubi() {
 }
 
 async function get_user_count() {
-    let userCount = await callSmartContract(contracts.ubi, "userCount");
+    let userCount = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "userCount");
     $("#userCount").html(userCount);
 }
 
 async function get_total_ubi() {
-    const events = await contracts.ubi.getPastEvents("Deposit_Reward", {
+    const events = await get_contract(abis.ubi, addresses.ubi).getPastEvents("Deposit_Reward", {
         filter: {
             user: accounts[0]
         },
@@ -224,12 +224,12 @@ async function get_total_ubi() {
 }
 
 async function collect_ubi() {
-    const {success, gas, message}  = await estimateGas(contracts.ubi, "collect_ubi");
+    const {success, gas, message}  = await estimateGas(get_contract(abis.ubi, addresses.ubi), "collect_ubi");
     if(!success) {
         notifier.warning(message);
         return;
     }
-    await notifier.async(runSmartContract(contracts.ubi, "collect_ubi")
+    await notifier.async(runSmartContract(get_contract(abis.ubi, addresses.ubi), "collect_ubi")
         , null, null, `Getting UBI`, {
             labels: {
                 async: "Please wait..."
@@ -238,7 +238,7 @@ async function collect_ubi() {
 }
 
 async function get_history() {
-    const events = await contracts.ubi.getPastEvents("Collect_UBI", {
+    const events = await get_contract(abis.ubi, addresses.ubi).getPastEvents("Collect_UBI", {
         filter: {
             user: accounts[0]
         },
@@ -275,7 +275,7 @@ async function check_donate_button() {
         $("#btn_donate").html("Connect wallet");
         return;
     }
-    let allowance = await contracts.wjax.methods.allowance(accounts[0], contracts.ubi._address).call();
+    let allowance = await get_contract(abis.erc20, addresses.ubi).methods.allowance(accounts[0], get_contract(abis.ubi, addresses.ubi)._address).call();
     allowance = formatUnit(allowance);
     if(allowance < 100000){
         $("#btn_donate").html("Approve");
@@ -285,17 +285,17 @@ async function check_donate_button() {
 }
 
 async function donate() {
-    let allowance = await contracts.wjax.methods.allowance(accounts[0], contracts.ubi._address).call();
+    let allowance = await get_contract(abis.erc20, addresses.ubi).methods.allowance(accounts[0], get_contract(abis.ubi, addresses.ubi)._address).call();
     allowance = formatUnit(allowance);
     if(allowance < 100000){
-        await approve_token("WJAX", contracts.wjax, contracts.ubi._address, "1" + "0".repeat(77));
+        await approve_token("WJAX", get_contract(abis.erc20, addresses.ubi), get_contract(abis.ubi, addresses.ubi)._address, "1" + "0".repeat(77));
         return;
     }
     let amount = $("#donate_amount").val();
     if(!amount){
         return;
     }
-    const promise = runSmartContract(contracts.ubi, "deposit_reward", parseUnit(amount, 4));
+    const promise = runSmartContract(get_contract(abis.ubi, addresses.ubi), "deposit_reward", parseUnit(amount, 4));
     notifier.async(promise, null, null, `Donating ${amount} ${token_name}`, {labels: {
         async: "Please wait..."
     }});
@@ -303,12 +303,12 @@ async function donate() {
 
 async function donate_to_wallet() {
     let amount = $("#donate_amount").val();
-    const {success, gas, message}  = await estimateGas(contracts.wjax, "transfer", donate_wallet);   
+    const {success, gas, message}  = await estimateGas(get_contract(abis.erc20, addresses.ubi), "transfer", donate_wallet);   
     if(!success) {
         notifier.warning(message);
         return;
     }
-    notifier.async(runSmartContract(contracts.wjax, "transfer", parseUnit(amount, 4)), 
+    notifier.async(runSmartContract(get_contract(abis.erc20, addresses.ubi), "transfer", parseUnit(amount, 4)), 
         null, null, `Donating ${amount} ${token_name}`, {labels: {
         async: "Please wait..."
     }});
