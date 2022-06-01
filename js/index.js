@@ -12,7 +12,7 @@ async function get_statistics() {
         ]
       );
     $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
-    $(".totalUbiPerPerson").html(formatUnit(totalUbiPerPerson, 4, 0).toLocaleString());
+    $(".totalUbiPerPerson").html(10 + formatUnit(totalUbiPerPerson, 4, 0).toLocaleString());
   
   }
   async function check_status() {
