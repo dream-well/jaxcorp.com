@@ -2,12 +2,11 @@
 const donate_wallet = '';
 
 let step = 0;
+let initialized = false;
 
 
 void function main() {
     setInterval(check_status, 10000);
-    web3.currentProvider.on("accountsChanged", _.debounce(check_status));
-    web3.currentProvider.on("connect", _.debounce(check_status));
     connect_wallet();
     check_status();
     $(".ubi_all_div").show();
@@ -23,7 +22,13 @@ function hide_all_steps() {
     $(".ubi_id_submitted").hide();
 }
 
+
 async function check_status() {
+    if(!initialized && web3 && web3.currentProvider) {
+        web3.currentProvider.on("accountsChanged", _.debounce(check_status));
+        web3.currentProvider.on("connect", _.debounce(check_status));
+        initialized = true;
+    }
     check_donate_button();
     if(accounts.length == 0) {
         hide_all_steps();
