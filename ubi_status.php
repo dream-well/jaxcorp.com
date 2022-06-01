@@ -139,6 +139,9 @@
             <!-- <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span>  </h5> -->
             <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                 style="vertical-align: text-bottom"> Join Telegram Channel</a>
+            <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
           </div>
           <!--  -->
           <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
