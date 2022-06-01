@@ -4,15 +4,18 @@ async function get_statistics() {
     const ubi = new web3.eth.Contract(abis.ubi, addresses.ubi);
     let [
       ubiBenefeciariesCount,
-      totalUbiPerPerson
+      totalUbiPerPerson,
+      total_ubi_paid
     ] = await Promise.all(
         [
           callSmartContract(ubi, "userCount"),
-          callSmartContract(ubi, "totalRewardPerPerson")
+          callSmartContract(ubi, "totalRewardPerPerson"),
+          callSmartContract(ubi, "total_ubi_paid")
         ]
       );
     $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
-    $(".totalUbiPerPerson").html(10 + formatUnit(totalUbiPerPerson, 4, 0).toLocaleString());
+    $(".totalUbiPerPerson").html(formatUnit(totalUbiPerPerson, 4, 0).toLocaleString());
+    $(".totalUbiPaid").html(10 + formatUnit(total_ubi_paid, 4, 0).toLocaleString());
   
   }
   async function check_status() {
