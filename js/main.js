@@ -29,7 +29,7 @@ async function check_status() {
         web3.currentProvider.on("connect", _.debounce(check_status));
         initialized = true;
     }
-    check_donate_button();
+    // check_donate_button();
     if(accounts.length == 0) {
         hide_all_steps();
         $(".ubi_not_connect").show();
