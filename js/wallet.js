@@ -83,7 +83,8 @@ let tokens = {
         approval: true,
         code: 'wjax',
         exchanges: ["JAXUD", "BUSD"],
-        image: 'https://www.jax.money/img/jax.png'
+        image: 'https://www.jax.money/img/jax.png',
+        address: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb'
     },
     "VRP": {
         decimals: 18,
