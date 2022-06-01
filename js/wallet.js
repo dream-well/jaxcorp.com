@@ -69,42 +69,42 @@ let tokens = {
         code: 'busd',
         approval: true,
         exchanges: ["JAXUD", "JAXRE", "WJAX"],
-        image: 'https://beta.jax.money/img/busd_logo.png'
+        image: 'https://www.jax.money/img/busd_logo.png'
     },
     "WJXN": {
         decimals: 0,
         approval: true,
         code: 'wjxn',
         exchanges: ["VRP"],
-        image: 'https://beta.jax.money/img/wjxn.png'
+        image: 'https://www.jax.money/img/wjxn.png'
     },
     "WJAX": {
         decimals: 4,
         approval: true,
         code: 'wjax',
         exchanges: ["JAXUD", "BUSD"],
-        image: 'https://beta.jax.money/img/jax.png'
+        image: 'https://www.jax.money/img/jax.png'
     },
     "VRP": {
         decimals: 18,
         approval: true,
         code: 'vrp',
         exchanges: ["WJXN"],
-        image: 'https://beta.jax.money/img/j-usd.png'
+        image: 'https://www.jax.money/img/j-usd.png'
     },
     "JAXUD": {
         decimals: 18,
         approval: true,
         code: 'jusd',
         exchanges: ["WJAX", "JAXRE", "BUSD"],
-        image: 'https://beta.jax.money/img/j-usd.png'
+        image: 'https://www.jax.money/img/j-usd.png'
     },
     "JAXRE": {
         decimals: 18,
         approval: true,
         code: 'jinr',
         exchanges: ["JAXUD", "BUSD"],
-        image: 'https://beta.jax.money/img/j-inr.png'
+        image: 'https://www.jax.money/img/j-inr.png'
     },
 
 }

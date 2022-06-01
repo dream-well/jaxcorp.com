@@ -49,7 +49,7 @@ async function check_status() {
             $(".ubi_id_submitted").show();
         else
             $(".ubi_not_kyc").show();
-        const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${publicKey}`);
+        const {data} = await axios.get(`https://www.jax.money:8443/veriff/user/${publicKey}`);
     
         if(data.type == 'success') {
             if(data.user.publicKey != publicKey.toLowerCase()){
@@ -131,7 +131,7 @@ async function _verify() {
         `Waiting for server response`,
         {durations: {info: 0}, labels: {info: "Fetching session status"}, icons: {info: "spinner fa-spin"}})
     
-    const {data} = await axios.get(`https://beta.jax.money:8443/veriff/user/${publicKey}`).catch(waiting_notifier.remove);
+    const {data} = await axios.get(`https://www.jax.money:8443/veriff/user/${publicKey}`).catch(waiting_notifier.remove);
     waiting_notifier.remove();
 
     const user = data.user;
@@ -148,7 +148,7 @@ async function _verify() {
                 `Waiting for server response`,
                 {durations: {info: 0}, labels: {info: "Creating new session"}, icons: {info: "spinner fa-spin"}})
             
-            const {data: newdata} = await axios.put(`https://beta.jax.money:8443/veriff/user`, {publicKey: publicKey})
+            const {data: newdata} = await axios.put(`https://www.jax.money:8443/veriff/user`, {publicKey: publicKey})
                 .catch(waiting_notifier.remove);
             waiting_notifier.remove();
             if(newdata.type == "success") {
@@ -161,7 +161,7 @@ async function _verify() {
                     `Creating new veriff session`,
                     {durations: {info: 0}, labels: {info: "Waiting for server response"}, icons: {info: "spinner fa-spin"}})
                
-                const {data: newdata} = await axios.post(`https://beta.jax.money:8443/veriff/user`, {publicKey: publicKey}).catch(waiting_notifier.remove);
+                const {data: newdata} = await axios.post(`https://www.jax.money:8443/veriff/user`, {publicKey: publicKey}).catch(waiting_notifier.remove);
                 waiting_notifier.remove();
                 if(newdata.type == "success") {
                     sessionToken = newdata.user.sessionToken;
@@ -182,7 +182,7 @@ async function _verify() {
                     // const waiting_notifier = notifier.info(
                     //     `Waiting for server response`,
                     //     {durations: {info: 0}, labels: {info: "Updating session status"}, icons: {info: "spinner fa-spin"}})                
-                    // await axios.patch("https://beta.jax.money:8443/veriff/user/" + publicKey, {status: 'submitted', sessionToken}).catch(waiting_notifier.remove);
+                    // await axios.patch("https://www.jax.money:8443/veriff/user/" + publicKey, {status: 'submitted', sessionToken}).catch(waiting_notifier.remove);
                     // waiting_notifier.remove();
                     
                     break;
