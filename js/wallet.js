@@ -152,7 +152,7 @@ function on_wrong_network() {
 void function main() {
 
     on_wallet_disconnected();
-    if(window.ethereum) {
+    if(Web3.givenProvider) {
         web3 = new Web3(Web3.givenProvider);
     } else {
         // Create a connector
@@ -198,7 +198,7 @@ void function main() {
         }
     });
 
-    if(ethereum.selectedAddress)
+    if(Web3.givenProvider)
         connect_wallet();
 }()
 
