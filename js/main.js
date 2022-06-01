@@ -189,7 +189,7 @@ async function _verify() {
 
 async function get_pending_ubi() {
     let totalRewardPerPerson = await callSmartContract(contracts.ubi, "totalRewardPerPerson");
-    let {harvestedReward, collectedReward, releasedReward, entryReward} = await callSmartContract(contracts.ubi, "userInfo", accounts[0]);
+    let {harvestedReward, collectedReward, releasedReward, entryReward} = await callSmartContract(contracts.ubi, "get_user_info", accounts[0]);
     let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 2);
     let total_ubi = formatUnit(BN(totalRewardPerPerson).sub(BN(entryReward)).toString(), 4, 2);
     let under_process = formatUnit(BN(collectedReward).sub(BN(releasedReward)).toString(), 4, 2);
