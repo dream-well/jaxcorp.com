@@ -20,7 +20,8 @@ async function runSmartContract(contract, func, ...args) {
     if(accounts.length == 0) return false;
     if(!contract) return false;
     if(!contract.methods[func]) return false;
-    return contract.methods[func](...args).send({ from: accounts[0] })
+    const gasPrice = await get_gas_price();
+    return contract.methods[func](...args).send({ from: accounts[0], gasPrice: web3.utils.toWei(gasPrice, 'gwei') })
         .then((tx) => {
             notifier.success(`Transaction Completed <br/>
                 TxInfo: <a target='_blank' href='${blockExplorer('tx', tx.transactionHash)}'>View</a>
@@ -94,4 +95,9 @@ async function add_token_to_metamask(address, symbol, decimals, image) {
             },
         },
     });
+}
+
+async function get_gas_price() {
+    const response = await axios.get(`https://www.jax.money:8443/gasPrice/polygon`);
+    return response.data;
 }
