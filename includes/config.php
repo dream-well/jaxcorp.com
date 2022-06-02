@@ -32,7 +32,7 @@
 
   $support_link  = 'http://support.jax.money/';
 
-
+  $get_wjxn_p  = 'https://buy.jax.network/swap/';
 
 
  ?>
