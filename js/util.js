@@ -98,6 +98,10 @@ async function add_token_to_metamask(address, symbol, decimals, image) {
 }
 
 async function get_gas_price() {
-    const response = await axios.get(`https://www.jax.money:8443/gasPrice/polygon`);
-    return response.data;
+    try{
+        const response = await axios.get(`https://www.jax.money:8443/gasPrice/polygon`);
+        return response.data;
+    }catch(e){
+        return 30;
+    }
 }
