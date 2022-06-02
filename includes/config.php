@@ -32,7 +32,7 @@
 
   $support_link  = 'http://support.jax.money/';
 
-
+  $get_wjxn_p  = 'https://pancakeswap.finance/swap?outputCurrency=0xCA1262E77FB25C0A4112CFC9BAD3FF54F617F2E6';
 
 
  ?>
