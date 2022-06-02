@@ -99,7 +99,7 @@
             
               <div class="p-2 p-md-3 bg-lighterblue border-radius box-shadow bg-white mb-2 h-100 text-center ">
                 <img src="img/icon2.svg" class="pb-4" width="70px">
-                <h4 class="text-blue font-weight-normal pb-4">UBI Benefeciaries
+                <h4 class="text-blue font-weight-normal pb-4">UBI Beneficiaries
                 </h4>
                 <h2 class="text-blue text-center ubiBenefeciariesCount">0</h2>
               </div>
