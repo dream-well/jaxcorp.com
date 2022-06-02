@@ -6,13 +6,19 @@ async function get_statistics() {
       ubiBenefeciariesCount,
       totalUbiPerPerson,
       total_ubi_paid
-    ] = await Promise.all(
-        [
-          callSmartContract(ubi, "userCount"),
-          callSmartContract(ubi, "totalRewardPerPerson"),
-          callSmartContract(ubi, "total_ubi_paid")
-        ]
-      );
+    ] = await batchCall(web3, [
+      ubi.methods.userCount().call,
+      ubi.methods.totalRewardPerPerson().call,
+      ubi.methods.total_ubi_paid().call,
+    ]) 
+    
+    // await Promise.all(
+    //     [
+    //       callSmartContract(ubi, "userCount"),
+    //       callSmartContract(ubi, "totalRewardPerPerson"),
+    //       callSmartContract(ubi, "total_ubi_paid")
+    //     ]
+    //   );
     $(".ubiBenefeciariesCount").html(ubiBenefeciariesCount);
     $(".totalUbiPerPerson").html(formatUnit(totalUbiPerPerson, 4, 0).toLocaleString());
     $(".totalUbiPaid").html(Number(10 + formatUnit(total_ubi_paid, 4, 0)).toLocaleString());
