@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="text-center">
-      <a href="<?=$get_wjxn_p?>" class="btn btn-lg btn-info mt-3">Get WJXN</a>
+     
         <a href="<?=$ubi_status_link?>" class="btn btn-lg btn-info mt-3">Get WJAX UBI</a>
       </div>
 
