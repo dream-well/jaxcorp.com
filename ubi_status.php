@@ -76,6 +76,9 @@
                 href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
                 class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                 UBI.</a></p>
+                <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
           </div>
           <!-- no connected UBI STATUS -->
           <!-- not registered SIGUP -->
@@ -92,6 +95,9 @@
                 href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
                 class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                 UBI.</a></p>
+              <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
           </div>
         </div>
         <!-- not registered SIGUP -->
@@ -127,6 +133,9 @@
               href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
               class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
           </p>
+          <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
         </div>
         <!-- not registered KYC verify -->
         <!-- ALL CONNECTED -->
