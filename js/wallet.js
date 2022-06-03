@@ -374,6 +374,7 @@ function connect_wallet() {
 function disconnect_wallet() {
     accounts = [];
     reset_connect_button();
+    if(typeof check_status != "undefined") check_status();
 }
 
 function switch_network() {
