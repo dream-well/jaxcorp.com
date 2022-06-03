@@ -230,9 +230,6 @@ let minABI = [{ "inputs": [], "stateMutability": "payable", "type": "constructor
 function on_wallet_connected() {
 }
 
-function on_wallet_disconnected() {
-    $(".btn_connect").html("Connect a Wallet");
-}
 
 function on_wrong_network() {
     $(".btn_connect").html("Switch Network");
@@ -244,11 +241,8 @@ function on_wrong_network() {
 void function main() {
 
     init_web3();
-    on_wallet_disconnected();
 
-    if(Web3.givenProvider)
-        connect_wallet();
-        
+    const web3 = get_web3();
     BN = (str) => (new web3.utils.BN(str));
 
     getContractAddresses();
@@ -266,7 +260,7 @@ void function main() {
         }
     });
 
-    if(Web3.givenProvider)
+    if(localStorage.getItem("walletconnected") == "true")
         connect_wallet();
 }()
 
@@ -290,7 +284,6 @@ async function onConnect() {
     web3.currentProvider.on("accountsChanged", _accounts => {
         accounts = _accounts
         if (accounts.length == 0) {
-            on_wallet_disconnected();
             reset_connect_button();
         } else {            
             set_connected_address();
@@ -366,7 +359,6 @@ function connect_wallet() {
 function disconnect_wallet() {
     accounts = [];
     reset_connect_button();
-    on_wallet_disconnected();
 }
 
 function switch_network() {
@@ -410,6 +402,8 @@ function reset_connect_button() {
     $(".btn_connect").removeClass("btn-danger");
     $(".btn_connect").removeClass("btn-success");
     $(".btn_connect").addClass("btn-info");
+    $(".btn_connect").html("Connect a Wallet");
+    localStorage.setItem("walletconnected", false);
 
 }
 
@@ -426,6 +420,7 @@ function set_connected_address() {
     $(".btn_connect").removeClass("btn-info");
     $(".btn_connect").removeClass("btn-danger");
     $(".btn_connect").addClass("btn-success");
+    localStorage.setItem("walletconnected", true);
 }
 
 
@@ -442,4 +437,10 @@ function is_wrong_network() {
 
 function active_network() {
     return "polygonmainnet";
+}
+
+function get_web3() {
+    if(web3 && !is_wrong_network())
+        return web3;
+    return new Web3(networks[active_network()].url);
 }

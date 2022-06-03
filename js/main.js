@@ -7,7 +7,7 @@ let initialized = false;
 
 void function main() {
     setInterval(check_status, 10000);
-    connect_wallet();
+    // connect_wallet();
     check_status();
     $(".ubi_all_div").show();
 }();
