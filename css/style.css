@@ -1069,3 +1069,9 @@ a.article, a.article:hover {
     padding: 15px 25px !important;
 }
 
+@media only screen and (max-width: 1067px) and (min-width: 992px)  {
+
+  .selectwal {
+    display: none;
+  }
+}
