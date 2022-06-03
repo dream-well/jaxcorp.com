@@ -1066,7 +1066,7 @@ a.article, a.article:hover {
     font-size: 16px !important;
     border-radius: 10px !important;
     border: 2px solid #131b6a !important;
-    padding: 15px 25px !important;
+    padding: 4px 8px !important;
 }
 
 @media only screen and (max-width: 1067px) and (min-width: 992px)  {
