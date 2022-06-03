@@ -36,10 +36,9 @@ async function check_status() {
         return;
     }
     let publicKey = accounts[0];
-    const [count, userInfo] = await batchCall(web3, [
-        get_contract(abis.ubi, addresses.ubi).methods.userCount().call,
-        get_contract(abis.ubi, addresses.ubi).methods.get_user_info(publicKey).call
-    ])
+    const _web3 = new Web3(networks[active_network()].url);
+    const ubi = new _web3.eth.Contract(abis.ubi, addresses.ubi);
+    const userInfo = await ubi.methods.get_user_info(publicKey).call();
     const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
