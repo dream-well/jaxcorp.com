@@ -34,5 +34,6 @@
 
   $get_wjxn_p  = 'https://buy.jax.network/swap/';
 
+  $gitbook_link  = 'https://jax-network.gitbook.io/jaxcorp-dao/about-jaxcorp-dao/philosophical-background';
 
  ?>
