@@ -36,9 +36,10 @@ async function check_status() {
         return;
     }
     let publicKey = accounts[0];
-    const count = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "userCount");
-    console.log("count", count);
-    const userInfo = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "get_user_info", publicKey);
+    const [count, userInfo] = await batchCall(web3, [
+        get_contract(abis.ubi, addresses.ubi).methods.userCount().call,
+        get_contract(abis.ubi, addresses.ubi).methods.get_user_info(publicKey).call
+    ])
     const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
@@ -194,8 +195,16 @@ async function _verify() {
 }
 
 async function get_pending_ubi() {
-    let totalRewardPerPerson = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "totalRewardPerPerson");
-    let {harvestedReward, collectedReward, releasedReward, entryReward} = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "get_user_info", accounts[0]);
+    const ubi = get_contract(abis.ubi, addresses.ubi);
+    let [
+        totalRewardPerPerson, 
+        {harvestedReward, collectedReward, releasedReward, entryReward}
+    ] = await batchCall(web3, [
+        ubi.methods.totalRewardPerPerson().call,
+        ubi.methods.get_user_info(accounts[0]).call
+    ])
+    // let totalRewardPerPerson = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "totalRewardPerPerson");
+    // let {harvestedReward, collectedReward, releasedReward, entryReward} = await callSmartContract(get_contract(abis.ubi, addresses.ubi), "get_user_info", accounts[0]);
     let reward = formatUnit(BN(totalRewardPerPerson).sub(BN(harvestedReward)).toString(), 4, 2);
     let total_ubi = formatUnit(BN(totalRewardPerPerson).sub(BN(entryReward)).toString(), 4, 2);
     let under_process = formatUnit(BN(collectedReward).sub(BN(releasedReward)).toString(), 4, 2);

@@ -124,8 +124,8 @@ function init_web3() {
           rpc: {
             1: "https://mainnet.infura.io/v3/6797126c4f0942d99b649046e1ade16d",
             97: "https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/bsc/testnet",
-            56: `https://bsc-dataseed1.binance.org/`,
-            137: `https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/polygon/mainnet`,
+            56: `https://bscrpc.com`,
+            137: `https://polygon-rpc.com`,
             80001: `https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/polygon/mumbai`,
             43113: `https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/avalanche/testnet`,
           }
@@ -437,6 +437,7 @@ function set_connected_address() {
     $(".btn_connect").removeClass("btn-danger");
     $(".btn_connect").addClass("btn-success");
     localStorage.setItem("walletconnected", true);
+    if(typeof check_status != "undefined") check_status();
 }
 
 
