@@ -260,6 +260,21 @@ void function main() {
         }
     });
 
+    $(".dropdown").hover(
+        function() {
+            if (accounts.length == 0) return;
+            hover = true;
+            $(this).children("ul").slideDown('medium');
+        },
+        function() {
+            hover = false;
+            setTimeout(() => {
+                if (hover) return;
+                $(this).children("ul").slideUp('medium');
+            }, 500);
+        }
+    )
+
     if(localStorage.getItem("walletconnected") == "true")
         connect_wallet();
 }()
