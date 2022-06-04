@@ -33,6 +33,7 @@
       </div>
       <div class="col-lg-2 pb-3">
         <h6>Support</h6>
+        <a target="_blank" href="<?=$gitbook_link?>">Documentation</a><br>
         <a target="_blank" href="<?=$support_link?>">Help Center</a><br>
       </div>
     </div>
