@@ -20,8 +20,11 @@ async function runSmartContract(contract, func, ...args) {
     if(accounts.length == 0) return false;
     if(!contract) return false;
     if(!contract.methods[func]) return false;
-    const gasPrice = await get_gas_price();
-    return contract.methods[func](...args).send({ from: accounts[0], gasPrice: web3.utils.toWei(gasPrice, 'gwei') })
+    // $("#console").html("getting gasprice ");
+    // const gasPrice = await get_gas_price();
+    const gasPrice = 40;
+    // $("#console").html("gasprice " + gasPrice);
+    return contract.methods[func]().send({ from: accounts[0], gasPrice: web3.utils.toWei(gasPrice, 'gwei') })
         .then((tx) => {
             notifier.success(`Transaction Completed <br/>
                 TxInfo: <a target='_blank' href='${blockExplorer('tx', tx.transactionHash)}'>View</a>
@@ -39,7 +42,10 @@ async function runSmartContract(contract, func, ...args) {
 
 async function estimateGas(contract, func, ...args) {
     try {
+        $("#console").html("estimate gas " + contract.methods[func]().estimateGas + " " + accounts[0]);
         const gasAmount = await contract.methods[func](...args).estimateGas({from: accounts[0]});
+        // const gasAmount = 1000;
+        $("#console").html("estimate gas " + gasAmount);
         return {
             success: true,
             gas: gasAmount
@@ -71,7 +77,7 @@ async function get_balance(contract, decimal) {
     let balance = -1;
     if(accounts.length) {
         balance = await callSmartContract(contract, 'balanceOf', accounts[0]);
-        balance = formatUnit(balance, decimal ?? await get_decimal(contract));
+        balance = formatUnit(balance, decimal ? decimal : await get_decimal(contract));
     }
     return balance;
 }
