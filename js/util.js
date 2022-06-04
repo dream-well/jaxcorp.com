@@ -22,7 +22,7 @@ async function runSmartContract(contract, func, ...args) {
     if(!contract.methods[func]) return false;
     // $("#console").html("getting gasprice ");
     // const gasPrice = await get_gas_price();
-    const gasPrice = 40;
+    const gasPrice = "40";
     // $("#console").html("gasprice " + gasPrice);
     return contract.methods[func]().send({ from: accounts[0], gasPrice: web3.utils.toWei(gasPrice, 'gwei') })
         .then((tx) => {
