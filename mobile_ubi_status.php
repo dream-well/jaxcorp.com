@@ -49,6 +49,9 @@
                 href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
                 class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                 UBI.</a></p>
+                <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
           </div>
           <!-- no connected UBI STATUS -->
           <!-- not registered SIGUP -->
@@ -65,6 +68,9 @@
                 href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
                 class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                 UBI.</a></p>
+              <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
           </div>
         </div>
         <!-- not registered SIGUP -->
@@ -100,6 +106,9 @@
               href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
               class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
           </p>
+          <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
         </div>
         <!-- not registered KYC verify -->
         <!-- ALL CONNECTED -->
@@ -109,44 +118,49 @@
                 <p class="pb-0 mb-0 alert-success border-radius p-2" style="font-size: 12px;">Approved</p>
               </span></h3>
             <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
-            <!-- <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span> Ajax Prime</h5> -->
+            <!-- <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span>  </h5> -->
             <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                 style="vertical-align: text-bottom"> Join Telegram Channel</a>
+            <div class="mt-4">
+                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+            </div>
           </div>
           <!--  -->
           <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
-            <div class="flex-fill d-flex">
-              <div class="col-4 justify-content-start align-items-center">
-                <p class="text-info font80 mb-0 d-block">Total UBI Paid</p>
-                <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi_paid">&nbsp;</span> <small>WJXN</small></h3>
+            <div class="flex-fill d-flex st_wrap  align-items-center">
+              <div class="col-12 col-md-8 d-flex justify-content-between">
+                <div class=" justify-content-start align-items-center">
+                  <p class="text-info font80 mb-0 d-block"> My Total UBI </p>
+                  <h3 class="d-block mb-0 pb-0 text-blue"><span class="total_ubi_paid">&nbsp;</span> <small>WJAX</small></h3>
+                </div>
+                <div class=" justify-content-start align-items-center">
+                  <p class="text-info font80 mb-0 d-block">My Pending UBI</p>
+                  <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi">&nbsp;</span> <small>WJAX</small></h3>
+                </div>
               </div>
-              <div class="col-4 justify-content-start align-items-center">
-                <p class="text-info font80 mb-0 d-block">Accumulated UBI</p>
-                <h3 class="d-block mb-0 pb-0 text-blue"><span class="pending_ubi">&nbsp;</span> <small>WJAX</small></h3>
-              </div>
-              <div class="col-4 d-flex justify-content-end align-items-center"><a href="#"
+              <div class="col-12 col-md-4 d-flex justify-content-center align-items-center"><a href="#"
                   class="btn btn-info btn-lg font80" onclick="collect_ubi()">Process UBI</a></div>
             </div>
           </div>
 
           <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
-            <div class="flex-fill d-flex">
-              <div class="col-4 justify-content-start align-items-center my-auto">
-                <p class="text-info font80 mb-0 d-block">UBI under-process</p>
+            <div class="flex-fill d-flex st_wrap  align-items-center">
+              <div class="col-12 col-md-8 d-flex justify-content-between">
+              <div class=" justify-content-start align-items-center my-auto">
+                <p class="text-info font80 mb-0 d-block">My UBI under-process</p>
                 <h3 class="d-block mb-0 pb-0 text-blue">
                   <span class="under_process">&nbsp;</span>
                   <small>WJAX</small>
                 </h3>
               </div>
-              <div class="col-4 justify-content-start align-items-center">
+              <div class="justify-content-start align-items-center">
                 <h6 class="pb-0 mb-0 text-blue pb-2">Please contact your UBI governor</h6>
                 <p class="text-yellow pb-0 mb-0" style="line-height: 15px">
                   <small>to collect your UBI payment. You can reach out through our telegram chat</small>
                 </p>
-
-
               </div>
-              <div class="col-4 d-flex justify-content-end align-items-center"><a href="https://t.me/jax_chat"
+              </div>
+              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jax_chat"
                   class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                     style="vertical-align: text-bottom" /> Open Telegram</a></div>
             </div>
@@ -229,7 +243,7 @@
       <!-- ALL CONNECTED -->
 
       <!-- Declined UBI STATUS -->
-      <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_declined" style="display:none">
+      <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_declined col-12" style="display:none">
         <h3 class="text-blue pb-3">My UBI status <span class="float-right">
             <p class="pb-0 mb-0 alert-danger border-radius p-2" style="font-size: 12px;">Declined</p>
           </span></h3>
