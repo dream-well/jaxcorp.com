@@ -65,7 +65,7 @@
   </header>
 <main role="main">
   <!-- Powered by -->
-<section class="bg-white pt-5 pb-5">
+<!-- <section class="bg-white pt-5 pb-5">
   <div class="container">
     
     <div class="row h-100">
@@ -86,7 +86,7 @@
    
     </div>
   </div>
-</section>
+</section> -->
 <!--How mush can I earn? start-->
 <section class="bg-white pt-5 pb-5">
   <div class="container">
