@@ -30,7 +30,49 @@
     </div>
   </div>
 </nav>
+<header class="bg-lighterblue pt-5 pb-5">
+  <div class="container">
+    <h1 class="text-blue text-center">JaxCorp DAO</h1>
+    <div class="row h-100">
 
+      <div class="col-12 col-md-6 my-auto">
+        <div class="pb-3">
+        <div class="ajax">
+              <div class="box">
+                <div class="img">
+                  <img src="img/ajaxprime.jpg">
+                </div>
+                
+                <h2 class="text-blue">Vinod Manoharan<br><span>Founder, JaxCorp DAO</span></h2>
+                <a href="https://polygonscan.com/address/0x83c532eb391aa5e0aeb72e2fbe15cada89673e56">
+                    "0x83c532eb391aa5e0aeb72e2fbe15cada89673e56"
+                    </a>
+                <p class="text-blue"> "UBI is necessary for a meritocracy and to enhance equality of opportunity."</p>
+                <!-- <div class="d-flex justify-content-end">
+                     <a href="" class="btn btn-info"><i class="fa fa-download" aria-hidden="true"></i> Download HandBook</a>
+                </div> -->
+                
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 video">
+        <!-- THE YOUTUBE PLAYER -->
+
+
+        <div class="vid-container">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5r3DS7oQoHY" title="" id="vid_frame"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+    <!-- <div class="text-center"><a href="#" class="btn btn-lg btn-info mt-3">Get WJAX UBI</a></div> -->
+
+  </div>
+</header>
 <main role="main" class="bg-lighterblue">
   <div class="container pt-5 pb-5">
     <div class="row justify-content-center ubi">
