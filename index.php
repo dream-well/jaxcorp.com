@@ -72,13 +72,13 @@
       <div class="col-12 col-md-12 text-center">
 		  <h2 class="text-blue text-center d-block">Powered by</h2>
       <div class="d-flex">
-          <a href="http://jax.network/" target="_blank" style="max-width:250px;">
+          <a href="http://jax.network/" target="_blank" style="max-width:250px;text-blue text-center">
             <img src="img/jax-network_logo_blue-1.svg" alt="">
             <span>Jax.Network</span>
           </a>
-          <a href="http://jax.money/" target="_blank" style="max-width:250px;">
+          <a href="http://jax.money/" target="_blank" style="max-width:250px;text-blue text-center">
             <img src="img/jax-money.svg" alt="">
-            <span>Jax.Moneu</span>
+            <span >Jax.Moneu</span>
           </a>
       </div>
        
