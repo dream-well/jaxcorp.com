@@ -877,6 +877,12 @@ a.article, a.article:hover {
   }
 }
 @media screen and (max-width: 650px) {
+  .logo_sect_by {
+    flex-direction: column;
+  }
+  .logo_sect_by a {
+    margin-bottom: 10px;
+  }
   .restable {
     display: block;
 	  	border-spacing:0px;
