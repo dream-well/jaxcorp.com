@@ -39,6 +39,7 @@ async function check_status() {
     const _web3 = new Web3(networks[active_network()].url);
     const ubi = new _web3.eth.Contract(abis.ubi, addresses.ubi);
     const userInfo = await ubi.methods.get_user_info(publicKey).call();
+    if(publicKey != accounts[0]) return;
     const is_id_proof = $(".ubi_id_submitted").is(":visible");
     hide_all_steps();
     if(userInfo.status == 0){
@@ -50,7 +51,7 @@ async function check_status() {
         else
             $(".ubi_not_kyc").show();
         const {data} = await axios.get(`https://www.jax.money:8443/veriff/user/${publicKey}`);
-    
+        if(publicKey != accounts[0]) return;
         if(data.type == 'success') {
             if(data.user.publicKey != publicKey.toLowerCase()){
                 $(".btn_verify").html("&nbsp");
