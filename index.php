@@ -64,6 +64,29 @@
     </div>
   </header>
 <main role="main">
+  <!-- Powered by -->
+<section class="bg-white pt-5 pb-5">
+  <div class="container">
+    
+    <div class="row h-100">
+      <div class="col-12 col-md-12 text-center">
+		  <h2 class="text-blue text-center d-block">Powered by</h2>
+      <div class="d-flex justify-content-around mt-5 logo_sect_by">
+          <a href="http://jax.network/" class="text-blue text-center" target="_blank" >
+            <img src="img/jax-network_logo_blue-1.svg" alt="" style="width:250px">
+          
+          </a>
+          <a href="http://jax.money/" class="text-blue text-center" target="_blank" >
+            <img src="img/jax-money.svg" alt="" style="width:250px;">
+            
+          </a>
+      </div>
+       
+      </div>
+   
+    </div>
+  </div>
+</section>
 <!--How mush can I earn? start-->
 <section class="bg-white pt-5 pb-5">
   <div class="container">

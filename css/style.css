@@ -877,6 +877,12 @@ a.article, a.article:hover {
   }
 }
 @media screen and (max-width: 650px) {
+  .logo_sect_by {
+    flex-direction: column;
+  }
+  .logo_sect_by a {
+    margin-bottom: 10px;
+  }
   .restable {
     display: block;
 	  	border-spacing:0px;
@@ -1068,7 +1074,7 @@ a.article, a.article:hover {
 }
 .g_wjxn_h_btn svg {
   position: relative;
-  top: 5px;
+  top: 3px;
 }
 
 @media only screen and (max-width: 1067px) and (min-width: 992px)  {
