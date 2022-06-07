@@ -20,10 +20,7 @@ async function runSmartContract(contract, func, ...args) {
     if(accounts.length == 0) return false;
     if(!contract) return false;
     if(!contract.methods[func]) return false;
-    // $("#console").html("getting gasprice ");
-    // const gasPrice = await get_gas_price();
-    const gasPrice = "40";
-    // $("#console").html("gasprice " + gasPrice);
+    const gasPrice = (await get_gas_price()).toString();
     return contract.methods[func]().send({ from: accounts[0], gasPrice: web3.utils.toWei(gasPrice, 'gwei') })
         .then((tx) => {
             notifier.success(`Transaction Completed <br/>
@@ -105,10 +102,10 @@ async function add_token_to_metamask(address, symbol, decimals, image) {
 
 async function get_gas_price() {
     try{
-        const response = await axios.get(`https://www.jax.money:8443/gasPrice/polygon`);
-        return response.data.toString();
+        const response = await axios.get(`https://gasstation-mainnet.matic.network/`);
+        return response.data.standard;
     }catch(e){
-        return "30";
+        return 30;
     }
 }
 
