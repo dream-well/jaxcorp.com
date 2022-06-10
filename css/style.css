@@ -710,7 +710,8 @@ a.article, a.article:hover {
   /*box-shadow: 20px 10px 181px rgba(12, 16, 53, 0.05) !important;*/
 }
 .accordion a {
-  color: #152172
+  color: #152172;
+  padding-left: 10px;
 }
 .accordion .card-header {
   background: #F6F6FA !important; /* S1 */
