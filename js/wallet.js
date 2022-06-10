@@ -282,6 +282,7 @@ void function main() {
 async function onConnect() {
 
     // console.log("Opening a dialog", web3Modal);
+    let provider;
     try {
         if(Web3.givenProvider){
             provider = Web3.givenProvider;
