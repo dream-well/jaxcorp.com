@@ -103,6 +103,10 @@ async function check_status() {
 }
 
 async function signup() {
+    if(is_wrong_network()) {
+        notifier.warning("Switch network to Polygon mainnet");
+        return;
+    }
     const {success, gas, message}  = await estimateGas(get_contract(abis.ubi, addresses.ubi), "register");
     if(!success) {
         notifier.warning(message);
