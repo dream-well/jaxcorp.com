@@ -36,7 +36,7 @@
                     </a>
                 <p class="text-blue"> "UBI is necessary for a meritocracy and to enhance equality of opportunity."</p>
                 <div class="d-flex justify-content-end">
-                     <a href="img/jaxism_handbook.pdf" download class="btn btn-info"><i class="fa fa-download" aria-hidden="true"></i> Jaxism HandBook</a>
+                     <a href="img/jaxism_handbook.pdf" download class="btn btn-info mix_5"><i class="fa fa-download" aria-hidden="true"></i> Jaxism HandBook</a>
                 </div>
                 
               </div>
@@ -58,7 +58,7 @@
       </div>
       <div class="text-center">
      
-        <a href="<?=$ubi_status_link?>" class="btn btn-lg btn-info mt-3">Get WJAX UBI</a>
+        <a href="<?=$ubi_status_link?>" class="btn btn-lg btn-info mt-3 mix_6">Get WJAX UBI</a>
       </div>
 
     </div>
@@ -167,7 +167,7 @@
       </div>
     
     </div>
-    <div class="row h-100 text-center d-block pt-3"> <a href="<?=$ubi_status_link?>" class="btn btn-success btn-lg">START</a> </div>
+    <div class="row h-100 text-center d-block pt-3"> <a href="<?=$ubi_status_link?>" class="btn btn-success btn-lg mix_7">START</a> </div>
   </div>
 </section>
 <!--points ends---> 
