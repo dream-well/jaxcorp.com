@@ -14,7 +14,7 @@
          <a href="<?=$ubi_status_link?>" class="btn my-2 my-sm-0 mr-3 border-radius pt-2 pb-2 btn-success mix_4" >Collect UBI</a>
       <form class="form-inline my-2 my-lg-0 homeselect mr-3">
           <div class="dropdown">
-            <a id="btn_connect" href="#" class="btn_connect btn my-2 my-sm-0 mr-3 border-radius pt-2 pb-2 btn_connect btn-info" onclick="connect_wallet()">Connect a Wallet</a>
+            <a id="btn_connect" href="#" class="btn_connect btn my-2 my-sm-0 mr-3 border-radius pt-2 pb-2 btn_connect btn-info mix_7" onclick="connect_wallet()">Connect a Wallet</a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="display: none;">
               <li><a class="dropdown-item" href="#" onclick="disconnect_wallet();">Disconnect wallet</a></li>
             </ul>

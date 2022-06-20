@@ -71,13 +71,13 @@
               </span></h3>
             <p class="text-blue">Connect with your Metamask wallet to apply for the UBI program from
               JaxCorp DAO.</p>
-            <a href="#" class="btn btn-info btn-lg mb-4" onclick="connect_wallet()">CONNECT A WALLET</a>
+            <a href="#" class="btn btn-info btn-lg mb-4 mix_8" onclick="connect_wallet()">CONNECT A WALLET</a>
             <p><a target='_blank'
                 href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
                 class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                 UBI.</a></p>
                 <div class="mt-4">
-                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+                <a href="#" class="btn-info btn mix_12"  onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
           </div>
           <!-- no connected UBI STATUS -->
@@ -90,13 +90,13 @@
             <p class="text-blue">By signing up, you agree with our <a target="_blank" href="<?=$terms_link?>"
                 class="text-blue" style="text-decoration: underline">Terms and Conditions</a> and <a target="_blank"
                 href="<?=$privacy_link?>" class="text-blue" style="text-decoration: underline">Privacy Policy</a>.</p>
-            <a href="#" class="btn btn-info btn-lg mb-4" onclick="signup();">Sign Up</a>
+            <a href="#" class="btn btn-info btn-lg mb-4 mix_9" onclick="signup();">Sign Up</a>
             <p><a target='_blank'
                 href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
                 class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO
                 UBI.</a></p>
               <div class="mt-4">
-                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+                <a href="#" class="btn-info btn mix_12" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@
           <p class="text-blue">Please verify your account by completing KYC.</p>
           <button class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</button>
 
-          <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram" style="display:none"><img
+          <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram mix_11" style="display:none"><img
               src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
           <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
           <p><a target='_blank'
@@ -134,7 +134,7 @@
               class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
           </p>
           <div class="mt-4">
-                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+                <a href="#" class="btn-info btn mix_12" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
         </div>
         <!-- not registered KYC verify -->
@@ -149,7 +149,7 @@
             <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                 style="vertical-align: text-bottom"> Join Telegram Channel</a>
             <div class="mt-4">
-                <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
+                <a href="#" class="btn-info btn mix_12" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
           </div>
           <!--  -->

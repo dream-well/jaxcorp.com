@@ -68,7 +68,13 @@ src="https://www.facebook.com/tr?id=1062834397630929&ev=PageView&noscript=1"
     mixpanel.track_links( '.mix_4', 'Collect UBI Header');
     mixpanel.track_links( '.mix_5', 'Jaxism book');
     mixpanel.track_links( '.mix_6', 'Get WJAX UBI btn');
-    mixpanel.track_links( '.mix_7', 'Start btn');
+    mixpanel.track_links( '.mix_7', 'Connect Wallet Header');
+    mixpanel.track_links( '.mix_8', 'Connect wallet (UBI status)');
+    mixpanel.track_links( '.mix_9', 'Sign up btn');
+    mixpanel.track_links( '.mix_10', 'Telegram');
+    mixpanel.track_links( '.mix_11', 'Open Telegram Chat (UBI status)');
+    mixpanel.track_links( '.mix_12', 'Add WJAX to wallet');
+
 
     </script>
 
