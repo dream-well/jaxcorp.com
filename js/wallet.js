@@ -42,7 +42,7 @@ let networks = {
     },
     polygonmainnet: {
         url: `https://polygon-rpc.com`,
-        chainId: 0x89,
+        chainId: 137,
         symbol: 'MATIC',
         blockExplorer: 'https://polygonscan.com',
         chainName: 'Polygon Mainnet'
@@ -449,7 +449,6 @@ async function add_to_wallet(token) {
 
 function is_wrong_network() {
     if(!web3 || accounts.length == 0) return false;
-    if(!active_network()) return false;
     return parseInt(web3.currentProvider.chainId) != networks[active_network()].chainId;
 }
 
