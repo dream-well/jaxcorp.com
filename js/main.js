@@ -69,7 +69,7 @@ async function check_status() {
                 $(".btn_verify").html("CONTINUE VERIFICATION");
             }
             if(data.status == 'expired' || data.status == 'abandoned') {
-                $(".btn_verify").html("EXPIRED, TRY AGIAN?")
+                $(".btn_verify").html("EXPIRED, TRY AGAIN?")
             }
             if(data.status == 'declined') {
                 $(".btn_verify").html("KYC REJECTED, TRY AGAIN")
