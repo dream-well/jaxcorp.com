@@ -68,7 +68,7 @@ async function check_status() {
             $(".btn_verify").html("EXPIRED, TRY AGIAN?")
         }
         if(veriff.status == 'declined') {
-            $(".btn_verify").html("YOUR KYC GOT REJECT, PLEASE TRY AGIAN")
+            $(".btn_verify").html("KYC REJECTED, TRY AGAIN")
         }
         if(veriff.status == 'resubmission_requested') {
             $(".btn_verify").html("RESUBMISSION REQUESTED, TRY AGAIN")
