@@ -7,7 +7,7 @@
             <a href="https://www.facebook.com/network.jax/" target="_blank" class="p-2"><img src="img/facebook.svg" width="15px"/></a>
              <a href="https://twitter.com/communityjax" target="_blank" class="p-2"><img src="img/twitter.svg" width="15px"/></a> 
              <a href="https://ua.linkedin.com/company/jax-network" target="_blank" class="p-2"><img src="img/linkedin.svg" width="15px"/></a> 
-             <a href="<?=$telegram_link?>" target="_blank" class="p-2"><img src="img/telegram.svg" width="15px"/></a>
+             <a href="<?=$telegram_link?>" target="_blank" class="p-2 mix_10"><img src="img/telegram.svg" width="15px"/></a>
              </div>
           ©2022. JaxCorp.com</div>
       </div>

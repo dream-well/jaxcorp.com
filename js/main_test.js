@@ -68,7 +68,11 @@ async function check_status() {
             $(".btn_verify").html("EXPIRED, TRY AGAIN?")
         }
         if(veriff.status == 'declined') {
+<<<<<<< HEAD
             $(".btn_verify").html("KYC REJECTED, PLEASE TRY AGAIN")
+=======
+            $(".btn_verify").html("KYC REJECTED, TRY AGAIN")
+>>>>>>> 8f4ca43e5c01e96250e743ff2b7076103c11f83a
         }
         if(veriff.status == 'resubmission_requested') {
             $(".btn_verify").html("RESUBMISSION REQUESTED, TRY AGAIN")
