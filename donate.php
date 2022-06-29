@@ -58,7 +58,7 @@
         JaxCorp DAO!</h1>
       <!-- <a href="https://jaxcorp.com#imprint" class="btn btn-lg btn-light font-weight-bold text-blue">Donate <img
             src="img-donation/right.png" class="ml-2" /></a> --> 
-      <a href="https://t.me/jax_chat"
+      <a href="https://t.me/jaxcorp_dao"
             class="btn btn-lg btn-light font-weight-bold text-blue">Join Telegram Chat <img src="img-donation/tele.png" /></a> </div>
     <div class="col-12 col-md-6 order-1 order-md-2"> <img src="img-donation/banner.png" class="img-fluid" /> </div>
   </div>

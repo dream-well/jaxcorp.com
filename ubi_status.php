@@ -126,7 +126,7 @@
           <p class="text-blue">Please contact a UBI Governor (or) UBI Ambassador in order to complete your enrollment.
           </p>
 
-          <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
+          <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
               src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
           <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
           <p><a target='_blank'
@@ -187,7 +187,7 @@
                 </p>
               </div>
               </div>
-              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jax_chat"
+              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jaxcorp_dao"
                   class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                     style="vertical-align: text-bottom" /> Open Telegram</a></div>
             </div>
@@ -276,7 +276,7 @@
           </span></h3>
         <p class="text-blue">Your request to join UBI program was declined. </p>
         <!-- <a href="#" class="btn btn-info btn-lg mb-4">Try again</a> -->
-        <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg"
+        <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg"
             class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
         <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
             class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
