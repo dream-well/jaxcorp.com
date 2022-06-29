@@ -125,7 +125,7 @@
           <p class="text-blue">Please verify your account by completing KYC.</p>
           <button class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</button>
 
-          <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80 mb-3 btn_telegram" style="display:none"><img
+          <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80 mb-3 btn_telegram" style="display:none"><img
               src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
           <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
           <p><a target='_blank'
@@ -141,7 +141,7 @@
           <p class="text-blue">Please contact a UBI Governor (or) UBI Ambassador in order to complete your enrollment.
           </p>
 
-          <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
+          <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
               src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
           <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
           <p><a target='_blank'
@@ -161,7 +161,7 @@
               </span></h3>
             <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
             <!-- <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span>  </h5> -->
-            <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
+            <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                 style="vertical-align: text-bottom"> Join Telegram Chat</a>
             <!-- <div class="mt-4">
                 <a href="#" class="btn-info btn" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
@@ -202,7 +202,7 @@
                 </p>
               </div>
               </div>
-              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jaxcorp_dao"
+              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jaxcorp"
                   class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                     style="vertical-align: text-bottom" /> Open Telegram</a></div>
             </div>
@@ -291,7 +291,7 @@
           </span></h3>
         <p class="text-blue">Your request to join UBI program was declined. </p>
         <!-- <a href="#" class="btn btn-info btn-lg mb-4">Try again</a> -->
-        <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg"
+        <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg"
             class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
         <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
             class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
