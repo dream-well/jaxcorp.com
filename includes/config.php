@@ -18,7 +18,7 @@
 
   $explore_jax_link  = 'https://explore.jax.net';
 
-  $telegram_link  = "https://t.me/jax_chat";
+  $telegram_link  = "https://t.me/jaxcorp_dao";
 
   $jax_net_link  = 'https://www.jax.net';
 
