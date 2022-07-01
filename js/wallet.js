@@ -1,4 +1,5 @@
 let web3;
+let _web3;
 let accounts = [];
 let mode = "test";
 // let active_network = "polygonmainnet";
@@ -42,6 +43,10 @@ let networks = {
     },
     polygonmainnet: {
         url: `https://polygon-rpc.com`,
+        alturls: [
+            'https://rpc-mainnet.maticvigil.com', 
+            'https://rpc-mainnet.matic.network'
+        ],
         chainId: 137,
         symbol: 'MATIC',
         blockExplorer: 'https://polygonscan.com',
@@ -243,6 +248,8 @@ void function main() {
     init_web3();
 
     const web3 = get_web3();
+    _web3 = web3;
+    get_web3();
     BN = (str) => (new web3.utils.BN(str));
 
     getContractAddresses();
@@ -457,7 +464,23 @@ function active_network() {
 }
 
 function get_web3() {
-    if(web3 && !is_wrong_network())
+    if(web3 && !is_wrong_network()){
         return web3;
+    }
+    if(_web3) {
+        _web3.eth.getBlockNumber()
+        .then(() => { 
+            // Do our stuff
+        })
+        .catch(async (err) => {
+            // If current provider is not available, try another one from the list
+            const res = JSON.stringify(err, Object.getOwnPropertyNames(err));
+            if (res.includes('Invalid JSON RPC response')){
+                const alturls = networks[active_network()].alturls;
+                _web3 = new Web3(alturls ? alturls[0] : networks[active_network()].url);
+            }
+        });
+        return _web3;
+    }
     return new Web3(networks[active_network()].url);
 }
