@@ -61,19 +61,9 @@
 <main role="main" class="bg-lighterblue">
   <div class="container pt-5 pb-5">
     <div class="row justify-content-center ubi">
-      <div class="col-12 col-md-12 ubi_all_div">
-          <div class="bg-white box-shadow border-radius p-4 mb-4">
-          <p class="text-blue">For the last several days a lot of new users have joined the UBI program. Our team is doing its best to proceed with all the payments as soon as possible. UBI verification has been stopped and will remain so for some time,
-             please join our official group chat in Telegram to receive notification on program resumption.</p>
-          </div>
-          <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
-              src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
-      </div>
-      
-     <!-- <div class="col-12 col-md-12 ubi_all_div" style="display:none">
-          
+      <div class="col-12 col-md-12 ubi_all_div" style="display:none">
         <!-- no connected UBI STATUS -->
-        <!-- <div class="">
+        <div class="">
           <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_connect" style="display:none">
             <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                 <p class="pb-0 mb-0 alert-danger border-radius p-2" style="font-size: 12px;">Not
@@ -89,10 +79,10 @@
                 <div class="mt-4">
                 <a href="#" class="btn-info btn mix_12"  onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
-          </div> -->
+          </div>
           <!-- no connected UBI STATUS -->
           <!-- not registered SIGUP -->
-          <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_signup" style="display:none">
+          <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_signup" style="display:none">
             <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                 <p class="pb-0 mb-0 alert-dark border-radius p-2" style="font-size: 12px;">Not
                   Registered</p>
@@ -108,11 +98,11 @@
               <div class="mt-4">
                 <a href="#" class="btn-info btn mix_12" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
-          </div> -->
+          </div>
         </div>
         <!-- not registered SIGUP -->
         <!-- not registered  KYC verify-->
-        <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_kyc" style="display:none">
+        <div class="bg-white box-shadow border-radius p-4 mb-4 ubi_not_kyc" style="display:none">
           <h3 class="text-blue pb-3">My UBI status <span class="float-right">
               <p class="pb-0 mb-0 alert-warning border-radius p-2" style="font-size: 12px;">Not Registered
               </p>
@@ -120,9 +110,9 @@
           <p class="text-blue">Please verify your account by completing KYC.</p>
           <button class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</button>
 
-          <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80 mb-3 btn_telegram mix_11" style="display:none"><img
+          <a href="https://t.me/jaxcorp_dao" class="btn btn-info btn-lg font80 mb-3 btn_telegram mix_11" style="display:none"><img
               src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
-        
+          <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
           <p><a target='_blank'
               href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
               class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
@@ -136,9 +126,9 @@
           <p class="text-blue">Please contact a UBI Governor (or) UBI Ambassador in order to complete your enrollment.
           </p>
 
-          <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
+          <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img
               src="img/telegram.svg" class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
-         
+          <!-- <a href="#" class="btn btn-info btn-lg mb-4 btn_verify" onclick="verify()">GET VERIFIED</a> -->
           <p><a target='_blank'
               href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
               class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a>
@@ -146,24 +136,24 @@
           <div class="mt-4">
                 <a href="#" class="btn-info btn mix_12" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
-        </div> -->
+        </div>
         <!-- not registered KYC verify -->
         <!-- ALL CONNECTED -->
-         <!--<div class="ubi_connected" style="display:none">
-          <!-- <div class="bg-white box-shadow border-radius p-4 mb-4">
+        <div class="ubi_connected" style="display:none">
+          <div class="bg-white box-shadow border-radius p-4 mb-4">
             <h3 class="text-blue pb-3">My UBI status <span class="float-right">
                 <p class="pb-0 mb-0 alert-success border-radius p-2" style="font-size: 12px;">Approved</p>
               </span></h3>
             <p class="text-blue">You’re successfully approved for the JAX UBI program Check your UBI payments below.</p>
-           
+            <!-- <h5 class="text-blue"><span class="font-weight-bold">My Governor:</span>  </h5> -->
             <a href="#" class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                 style="vertical-align: text-bottom"> Join Telegram Channel</a>
             <div class="mt-4">
                 <a href="#" class="btn-info btn mix_12" onclick="add_to_wallet('WJAX')">   <img style="width:25px;height:25px;margin-right: 10px;" src="img/metamask.svg" alt=""> Add WJAX to wallet</a>
             </div>
-          </div> -->
-        
-          <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+          </div>
+          <!--  -->
+          <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
             <div class="flex-fill d-flex st_wrap  align-items-center">
               <div class="col-12 col-md-8 d-flex justify-content-between">
                 <div class=" justify-content-start align-items-center">
@@ -178,9 +168,9 @@
               <div class="col-12 col-md-4 d-flex justify-content-center align-items-center"><a href="#"
                   class="btn btn-info btn-lg font80" onclick="collect_ubi()">Process UBI</a></div>
             </div>
-          </div> -->
+          </div>
 
-          <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
+          <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
             <div class="flex-fill d-flex st_wrap  align-items-center">
               <div class="col-12 col-md-8 d-flex justify-content-between">
               <div class=" justify-content-start align-items-center my-auto">
@@ -197,11 +187,11 @@
                 </p>
               </div>
               </div>
-              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jaxcorp"
+              <div class="col-12 col-md-4  d-flex justify-content-center align-items-center"><a href="https://t.me/jax_chat"
                   class="btn btn-info btn-lg font80"><img src="img/telegram.svg" width="25px"
                     style="vertical-align: text-bottom" /> Open Telegram</a></div>
             </div>
-          </div> -->
+          </div>
           <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
                     <div class="row d-flex">
                       <div class="col-12 col-md-4 mb-3 mb-md-0 justify-content-start align-items-center">
@@ -251,8 +241,8 @@
                       </div>
                   
                     <!-- table end
-                  </div> 
-        </div>-->
+                  </div> -->
+        </div>
       </div>
       <!--  -->
       <!-- <div class="bg-white box-shadow border-radius p-4 mb-4 voting">
@@ -286,7 +276,7 @@
           </span></h3>
         <p class="text-blue">Your request to join UBI program was declined. </p>
         <!-- <a href="#" class="btn btn-info btn-lg mb-4">Try again</a> -->
-        <a href="https://t.me/jaxcorp" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg"
+        <a href="https://t.me/jax_chat" class="btn btn-info btn-lg font80 mb-3 btn_telegram"><img src="img/telegram.svg"
             class="img_telegram" style="vertical-align: text-bottom"> Open Telegram Chat</a>
         <p><a target='_blank' href="https://medium.com/jax-network/why-ubi-is-important-for-a-meritocracy-47042e0c4718"
             class="text-blue" style="text-decoration: underline">Read more about JaxCorp DAO UBI.</a></p>
